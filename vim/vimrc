@@ -1,12 +1,20 @@
+" Personal .vimrc file
+" Maintained by Ramces Chirino <http://chirinosky.com>
+
+" ==================================================
 " IMPORTANT SETTINGS
 " ==================================================
+" Update runtime path
+set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
+" --------------------------
 " Vundle (Must be on top of this file)
-" ==================================================
+" --------------------------
 set nocompatible              " Disable vi compatibility
 filetype off                  " Disable file type detection (Enabled later)
 
-" Set vundle runtime path and initialize
-set rtp+=~/.vim/bundle/vundle/
+" Initialize vundle
 call vundle#rc()
 
 " Plugins for Vundle to manage
@@ -14,17 +22,37 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'darktango.vim'
 Bundle 'w0ng/vim-hybrid'
+Bundle 'Lokaltog/powerline'
 
 " ==================================================
 " General
 " ==================================================
-set t_Co=256                " Enable 256 colors
-colorscheme hybrid          " color scheme
-filetype plugin indent on   " Detect file and indent
-syntax on                   " Syntax highlighting
-set number                  " Display line numbers
-set ruler                   " Always show cursor position
-set cursorline              " line on cur location
+set t_Co=256                        " enable 256 colors
+set mouse=a                         " enable mouse for all modes
+let mapleader = ","                 " personal shortcut key
+colorscheme hybrid                  " color scheme
+filetype plugin indent on           " detect file and indent
+syntax on                           " syntax highlighting
+set laststatus=2                    " Always show status line
+set number                          " display line numbers
+set ruler                           " always show cursor position
+set cursorline                      " line on cur location
+set title                           " change terminal's title
+set nowrap                          " don't wrap text on load
+set wildmenu                        " better command-line completion
+set hlsearch                        " highlight searches
+set ignorecase                      " case-insensitive search
+set smartcase                       " case-sensitive if first letter is capital
+
+" Highlight column
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
+" Use <Ctrl>+h/j/k/l to navigate between splits
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
 
 " ==================================================
 " Editing
@@ -34,9 +62,21 @@ set shiftwidth=4                            " number of spaces per indent
 set softtabstop=4                           " <BS> over indent deletes all spaces
 set expandtab                               " tabs/indents use spaces
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅    " Show tab character and trailing whitespace
+set backspace=indent,eol,start              " Allow backspace over everything
+set showmatch                               " Show matching parenthesis
+set pastetoggle=<F2>                        " Toggle to prevent auto-indents
+
+" Improved indentation
+vnoremap < <gv
+vnoremap > >gv
+
 " --------------------------
 " Python
 " --------------------------
 au FileType py set autoindent       " Indent when starting a new line
 au FileType py set smartindent      " Indent when python requires, such as if/else
 au FileType py set textwidth=79     " PEP-8
+
+" ==================================================
+" Plugins
+" ==================================================
