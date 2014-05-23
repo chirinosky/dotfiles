@@ -1,0 +1,42 @@
+" IMPORTANT SETTINGS
+" ==================================================
+" Vundle (Must be on top of this file)
+" ==================================================
+set nocompatible              " Disable vi compatibility
+filetype off                  " Disable file type detection (Enabled later)
+
+" Set vundle runtime path and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Plugins for Vundle to manage
+Bundle 'gmarik/Vundle.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'darktango.vim'
+Bundle 'w0ng/vim-hybrid'
+
+" ==================================================
+" General
+" ==================================================
+set t_Co=256                " Enable 256 colors
+colorscheme hybrid          " color scheme
+filetype plugin indent on   " Detect file and indent
+syntax on                   " Syntax highlighting
+set number                  " Display line numbers
+set ruler                   " Always show cursor position
+set cursorline              " line on cur location
+
+" ==================================================
+" Editing
+" ==================================================
+set tabstop=4                               " number of spaces per <tab>
+set shiftwidth=4                            " number of spaces per indent
+set softtabstop=4                           " <BS> over indent deletes all spaces
+set expandtab                               " tabs/indents use spaces
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅    " Show tab character and trailing whitespace
+" --------------------------
+" Python
+" --------------------------
+au FileType py set autoindent       " Indent when starting a new line
+au FileType py set smartindent      " Indent when python requires, such as if/else
+au FileType py set textwidth=79     " PEP-8
