@@ -25,7 +25,14 @@ Bundle 'w0ng/vim-hybrid'
 Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'tmhedberg/SimpylFold'
+
+" Version-specific python plugins
+if has('python')
 Bundle 'Valloric/YouCompleteMe'
+elseif has('python3')
+Bundle 'davidhalter/jedi-vim'
+endif
 
 " ==================================================
 " General
@@ -46,6 +53,7 @@ set wildmenu                        " better command-line completion
 set hlsearch                        " highlight searches
 set ignorecase                      " case-insensitive search
 set smartcase                       " case-sensitive if first letter is capital
+set nofoldenable                    " don't fold code when loading
 
 " Highlight column
 set colorcolumn=80
