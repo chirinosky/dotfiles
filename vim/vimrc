@@ -23,6 +23,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'darktango.vim'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'Lokaltog/powerline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/nerdcommenter'
 
 " ==================================================
 " General
@@ -80,3 +82,11 @@ au FileType py set textwidth=79     " PEP-8
 " ==================================================
 " Plugins
 " ==================================================
+" --------------------------
+" Nerd Tree
+" --------------------------
+map <F3> :NERDTreeToggle<CR>
+let NERDTreeChDirMode=2         " CWD when switching nodes
+let NERDTreeIgnore=['\.vim$','\~$','\.pyc$','\.swp$']
+let NERDTreeSortOrder=['^__\.py$','\/$','*','\.swp$','\~$']
+let NERDTreeShowBookmarks=1
