@@ -88,6 +88,7 @@ vnoremap > >gv
 au FileType py set autoindent       " Indent when starting a new line
 au FileType py set smartindent      " Indent when python requires, such as if/else
 au FileType py set textwidth=79     " PEP-8
+nmap <leader>b oimport ipdb; ipdb.set_trace()  # BREAKPOINT
 
 " ==================================================
 " Plugins
