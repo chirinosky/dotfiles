@@ -100,6 +100,13 @@ au BufNewFile,BufReadPost *.md set filetype=markdown
 " Plugins
 " ==================================================
 " --------------------------
+" Jedi
+" --------------------------
+" Disable preview doc during autocomplete
+let g:jedi#auto_vim_configuration=0
+set completeopt=menuone,longest
+
+" --------------------------
 " Nerd Tree
 " --------------------------
 map <F3> :NERDTreeToggle<CR>
