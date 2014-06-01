@@ -27,6 +27,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'scrooloose/syntastic'
+Bundle 'msanders/snipmate.vim'
 
 " Version-specific python plugins
 if has('python')
@@ -94,7 +95,8 @@ nmap <leader>b oimport ipdb; ipdb.set_trace()  # BREAKPOINT
 " --------------------------
 " Markdown
 " --------------------------
-au BufNewFile,BufReadPost *.md set filetype=markdown
+au BufNewFile,BufReadPost *.md set filetype=markdown    " recognize markdown
+au BufRead,BufNewFile *.md setlocal spell               " enable spell check
 
 " ==================================================
 " Plugins
@@ -120,6 +122,5 @@ let NERDTreeShowBookmarks=1
 " --------------------------
 let g:syntastic_auto_loc_list=1             " open location window when error detected
 let g:syntastic_aggregate_errors=1          " Report on all checkers at once
-let g:syntastic_check_on_open=1             " Run checkers on load
 let g:syntastic_loc_list_height=5           " Lines to display
 let g:syntastic_python_checkers=['pyflakes', 'pep8', 'python']
