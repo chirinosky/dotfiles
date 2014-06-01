@@ -27,11 +27,15 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'scrooloose/syntastic'
-Bundle 'msanders/snipmate.vim'
+" snipmate dependencies
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 " Version-specific python plugins
 if has('python')
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 elseif has('python3')
 Bundle 'davidhalter/jedi-vim'
 endif
@@ -116,6 +120,13 @@ let NERDTreeChDirMode=2         " CWD when switching nodes
 let NERDTreeIgnore=['\.vim$','\~$','\.pyc$','\.swp$']
 let NERDTreeSortOrder=['^__\.py$','\/$','*','\.swp$','\~$']
 let NERDTreeShowBookmarks=1
+
+" --------------------------
+" Snipmate
+" --------------------------
+" default mappings interfere with ycm & jedi
+imap <leader><Tab> <Plug>snipMateNextOrTrigger
+smap <leader><Tab> <Plug>snipMateNextOrTrigger
 
 " --------------------------
 " Syntastic
