@@ -8,9 +8,9 @@ function symlink_vim {
         vim_files+=($file)
     done
     if [ ${#vim_files[@]} -gt 0 ]; then
-        $(mkdir -p $OLDDOTFILES/vim)
+        mkdir -p "$OLDDOTFILES/vim"
         for file in ${vim_files[@]}; do
-            $(mv -r $HOME/$file $OLDDOTFILES/vim/$file)
+            mv -r "$HOME/$file" "$OLDDOTFILES/vim/$file"
         done
     fi
 
@@ -18,12 +18,12 @@ function symlink_vim {
     vi_file=$(ls -a $HOME |grep .exrc)
 
     if [ -n "$vi_file" ]; then
-        $(mkdir -p $OLDDOTFILES/vi)
-        $(mv -r $HOME/$vi_file $OLDDOTFILES/vi/$vi_file)
+        mkdir -p $OLDDOTFILES/vi
+        mv -r $HOME/$vi_file $OLDDOTFILES/vi/$vi_file
     fi
 
     # Create symlinks
-    $(ln -s $HOME/.vim $HOME/.dotfiles/vim)
+    ln -s "$HOME/.vim" "$HOME/.dotfiles/vim"
 }
 
 symlink_vim
