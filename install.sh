@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function install_git {
+install_git() {
     if [ -z "$(command -v git)"]; then
         echo "git not found, installing..."
         sudo apt-get update >& /dev/null
