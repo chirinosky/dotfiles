@@ -6,5 +6,5 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     cd "$HOME/.dotfiles"
     python install.py
 else
-    echo "Install aborted because .dotfiles folder is present"
+    echo "Install aborted because a .dotfiles folder is present"
 fi
