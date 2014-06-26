@@ -19,12 +19,12 @@ def install_curl():
         print('Done')
 
 
-def install_vim():
+def symlink_vim():
     pass
 
 
 def main():
-    install_curl()
+    symlink_vim()
 
 
 if __name__ == '__main__':
