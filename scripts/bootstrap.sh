@@ -23,7 +23,7 @@ function symlink_vim {
     fi
 
     # Create symlinks
-    ln -s "$HOME/.vim" "$HOME/.dotfiles/vim"
+    ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
 }
 
 symlink_vim
