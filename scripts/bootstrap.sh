@@ -10,7 +10,7 @@ symlink_vim() {
     if [ ${#vim_files[@]} -gt 0 ]; then
         mkdir -p "$OLDDOTFILES/vim"
         for file in ${vim_files[@]}; do
-            mv -r "$HOME/$file" "$OLDDOTFILES/vim/$file"
+            mv "$HOME/$file" "$OLDDOTFILES/vim/$file"
         done
     fi
 
@@ -19,7 +19,7 @@ symlink_vim() {
 
     if [ -n "$vi_file" ]; then
         mkdir -p $OLDDOTFILES/vi
-        mv -r $HOME/$vi_file $OLDDOTFILES/vi/$vi_file
+        mv $HOME/$vi_file $OLDDOTFILES/vi/$vi_file
     fi
 
     # Create symlinks
