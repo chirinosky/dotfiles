@@ -24,9 +24,7 @@ symlink_vim() {
 
     echo "Configuring vim settings and plugins..."
     ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
-    git clone https://github.com/gmarik/Vundle.vim.git \
-        $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
-    vim -i NONE -c VundleUpdate -c quitall
+    echo "symlinked .vimrc"
 }
 
 upgrade_vim() {
@@ -38,5 +36,25 @@ upgrade_vim() {
     fi
 }
 
+configure_vim_plugins() {
+    echo "Installing and configuring Vundle"
+    git clone https://github.com/gmarik/Vundle.vim.git \
+        $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
+    vim -i NONE -c VundleUpdate -c quitall
+    echo "Done... installing Powerline fonts"
+    FONTS="$HOME/.fonts"
+    FONTCFG="$HOME/.fonts.conf.d"
+    mkdir -p $FONTS
+    curl -sSL https://github.com/Localtog/powerline/raw/develop/font/PowerlineSymbols.otf > \
+        $FONTS/PowerlineSymbols.otf
+    fc-cache -vf $FONTS
+    mkdir -p $FONTCFG
+    curl -sSL \
+        https://github.comLokaltog/powerline/raw/develop/font/10-powerline-symbols.conf > \
+            $FONTCFG/10-powerline-symbols.conf
+}
+
 upgrade_vim
 symlink_vim
+configure_vim_plugins
+#echo "Restart your terminal to ensure Powerline fonts are properly displayed"

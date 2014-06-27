@@ -19,9 +19,8 @@ call vundle#rc("~/.dotfiles/vim/bundle/")
 
 " Plugins for Vundle to manage
 Bundle 'gmarik/Vundle.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'darktango.vim'
 Bundle 'w0ng/vim-hybrid'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
