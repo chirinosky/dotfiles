@@ -46,12 +46,13 @@ configure_vim_plugins() {
     FONTCFG="$HOME/.fonts.conf.d"
     mkdir -p $FONTS
     curl -sSL https://github.com/Localtog/powerline/raw/develop/font/PowerlineSymbols.otf > \
-        $FONTS/PowerlineSymbols.otf
+        $FONTS/PowerlineSymbols.otf >& /dev/null
     fc-cache -vf $FONTS
     mkdir -p $FONTCFG
     curl -sSL \
-        https://github.comLokaltog/powerline/raw/develop/font/10-powerline-symbols.conf > \
+        https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf > \
             $FONTCFG/10-powerline-symbols.conf
+    echo "Powerline fonts installed."
 }
 
 upgrade_vim
