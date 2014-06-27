@@ -24,14 +24,15 @@ symlink_vim() {
 
     echo "Configuring vim settings and plugins..."
     ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
-    git clone https://github.com/gmarik/Vundle.vim.git $HOME/.dotfiles/vim/bundle/Vundle.vim
-    vim +BundleInstall +qall
+    git clone https://github.com/gmarik/Vundle.vim.git \
+        $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
+    vim +PluginInstall +qall
 }
 
 upgrade_vim() {
     if [ -z "$(command -v vim)" ]; then
         echo "Installing required vim packages..."
-        sudo apt-get -y install vim-gui-common vim-runtime
+        sudo apt-get -y install vim-gui-common vim-runtime >& /dev/null
     else
         echo "vim looks good so far..."
     fi
