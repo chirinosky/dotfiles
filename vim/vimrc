@@ -5,8 +5,8 @@
 " IMPORTANT SETTINGS
 " ==================================================
 " Update runtime path
-set rtp+=~/.vim/bundle/Vundle.vim/
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=~/.dotfiles/vim/bundle/Vundle.vim/
+set rtp+=~/.dotfiles/vim/bundle/powerline/powerline/bindings/vim
 
 " --------------------------
 " Vundle (Must be on top of this file)
