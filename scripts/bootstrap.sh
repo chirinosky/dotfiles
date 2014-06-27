@@ -26,7 +26,7 @@ symlink_vim() {
     ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
-    vim +PluginInstall +qall
+    vim -i NONE -c VundleUpdate -c quitall
 }
 
 upgrade_vim() {

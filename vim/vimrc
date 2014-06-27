@@ -15,7 +15,7 @@ set nocompatible              " Disable vi compatibility
 filetype off                  " Disable file type detection (Enabled later)
 
 " Initialize vundle
-call vundle#rc()
+call vundle#rc("~/.dotfiles/vim/bundle/")
 
 " Plugins for Vundle to manage
 Bundle 'gmarik/Vundle.vim'
@@ -46,7 +46,11 @@ endif
 set t_Co=256                        " enable 256 colors
 set mouse=a                         " enable mouse for all modes
 let mapleader = ","                 " personal shortcut key
-colorscheme hybrid                  " color scheme
+try
+    colorscheme hybrid              " use default color scheme if
+catch /^Vim\%((\a\+)\)\=:E185/      " the one set is not found
+    colorscheme default
+endtry
 filetype plugin indent on           " detect file and indent
 syntax on                           " syntax highlighting
 set laststatus=2                    " Always show status line
