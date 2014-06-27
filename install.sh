@@ -3,8 +3,8 @@
 install_git() {
     if [ -z "$(command -v git)"]; then
         echo "git not found, installing..."
-        sudo apt-get update >& /dev/null
-        sudo apt-get -y install git >& /dev/null
+        sudo apt-get update 2>& /dev/null
+        sudo apt-get -y install git 2>& /dev/null
     fi
 }
 
