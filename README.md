@@ -3,7 +3,7 @@
 
 ## Installation ##
 ```bash
-sh -c "`curl -fsSL https://raw.github.com/chirinosky/dotfiles/master/install.sh`"
+bash -c "`curl -fsSL https://raw.github.com/chirinosky/dotfiles/master/install.sh`"
 ```
 
 ## Features ##

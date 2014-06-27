@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function symlink_vim {
+symlink_vim() {
     OLDDOTFILES="$HOME/olddotfiles"
 
     # Clean up old vim files
@@ -26,4 +26,14 @@ function symlink_vim {
     ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
 }
 
+upgrade_vim() {
+    if [ -z "$(command -v vim)" ]; then
+        echo "Installing required vim packages..."
+        sudo apt-get -y install vim-gui-common vim-runtime
+    else
+        echo "vim looks good so far..."
+    fi
+}
+
+upgrade_vim
 symlink_vim
