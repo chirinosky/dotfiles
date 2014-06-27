@@ -22,8 +22,10 @@ symlink_vim() {
         mv $HOME/$vi_file $OLDDOTFILES/vi/$vi_file
     fi
 
-    # Create symlinks
+    echo "Configuring vim settings and plugins..."
     ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
+    git clone https://github.com/gmarik/Vundle.vim.git $HOME/.dotfiles/vim/bundle/Vundle.vim
+    vim +BundleInstall +qall
 }
 
 upgrade_vim() {
