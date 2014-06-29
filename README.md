@@ -1,14 +1,15 @@
-## Dependencies ##
-* curl (unless you download the install file manually)
-
 ## Installation ##
 ```bash
-bash -c "`curl -fsSL https://raw.github.com/chirinosky/dotfiles/master/install.sh`"
+wget -qO - https://raw.github.com/chirinosky/dotfiles/master/install.sh |bash
 ```
 
 ## Features ##
-### General ###
-* Existing dotfiles are moved into `~/olddotfiles` before symlinking
 
 ### vim ###
-* Symlink only at the moment
+* [Vundle](https://github.com/gmarik/Vundle.vim)
+* [Fugitive](https://github.com/tpope/vim-fugitive)
+* [NERDTree](https://github.com/scrooloose/nerdtree)
+* [NERDCommenter](https://github.com/scrooloose/nerdcommenter)
+* [Powerline](https://github.com/Lokaltog/powerline)
+* [Syntastic](https://github.com/scrooloose/syntastic)
+* [SimpylFold](https://github.com/tmhedberg/SimpylFold)
