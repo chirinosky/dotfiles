@@ -45,12 +45,12 @@ configure_vim_plugins() {
     FONTS="$HOME/.fonts"
     FONTCFG="$HOME/.fonts.conf.d"
     mkdir -p $FONTS
-    curl -sSL https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf > \
-        $FONTS/PowerlineSymbols.otf >& /dev/null
+    wget -qO $FONTS/PowerlineSymbols.otf \
+        https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
     fc-cache -vf $FONTS
     mkdir -p $FONTCFG
-    curl -sSL https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf > \
-            $FONTCFG/10-powerline-symbols.conf
+    wget -qO $FONTCFG/10-powerline-symbols.conf \
+        https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
     echo "Powerline fonts installed."
 }
 
