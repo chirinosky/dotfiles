@@ -63,9 +63,10 @@ set hlsearch                        " highlight searches
 set ignorecase                      " case-insensitive search
 set smartcase                       " case-sensitive if first letter is capital
 set nofoldenable                    " don't fold code when loading
+set textwidth=99
 
 " Highlight column
-set colorcolumn=80
+set colorcolumn=100
 highlight ColorColumn ctermbg=233
 
 " Use <Ctrl>+h/j/k/l to navigate between splits
@@ -77,33 +78,18 @@ map <c-l> <c-w>l
 " ==================================================
 " Editing
 " ==================================================
-set tabstop=4                               " number of spaces per <tab>
-set shiftwidth=4                            " number of spaces per indent
-set softtabstop=4                           " <BS> over indent deletes all spaces
 set expandtab                               " tabs/indents use spaces
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅    " Show tab character and trailing whitespace
 set backspace=indent,eol,start              " Allow backspace over everything
 set showmatch                               " Show matching parenthesis
 set pastetoggle=<F2>                        " Toggle to prevent auto-indents
-set textwidth=79                            " Wrap text at 79
 
 " Improved indentation
 vnoremap < <gv
 vnoremap > >gv
 
-" --------------------------
-" Python
-" --------------------------
-au FileType py set autoindent       " Indent when starting a new line
-au FileType py set smartindent      " Indent when python requires, such as if/else
-au FileType py set textwidth=79     " PEP-8
-nmap <leader>b oimport ipdb; ipdb.set_trace()  # BREAKPOINT
-
-" --------------------------
-" Markdown
-" --------------------------
-au BufNewFile,BufReadPost *.md set filetype=markdown    " recognize markdown
-au BufRead,BufNewFile *.md setlocal spell               " enable spell check
+" Detect shorthand markdown files
+au BufNewFile,BufReadPost *.md set filetype=markdown
 
 " ==================================================
 " Plugins
