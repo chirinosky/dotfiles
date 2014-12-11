@@ -34,7 +34,7 @@ Bundle 'honza/vim-snippets'
 
 " Version-specific python plugins
 if has('python')
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 elseif has('python3')
 Bundle 'davidhalter/jedi-vim'
 endif
