@@ -22,15 +22,8 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/powerline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'scrooloose/syntastic'
-" snipmate dependencies
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
 
 " Version-specific python plugins
 if has('python')
@@ -62,7 +55,7 @@ set wildmenu                        " better command-line completion
 set hlsearch                        " highlight searches
 set ignorecase                      " case-insensitive search
 set smartcase                       " case-sensitive if first letter is capital
-set nofoldenable                    " don't fold code when loading
+"set nofoldenable                    " don't fold code when loading
 set textwidth=99
 
 " Highlight column
@@ -109,13 +102,6 @@ let NERDTreeChDirMode=2         " CWD when switching nodes
 let NERDTreeIgnore=['\.vim$','\~$','\.pyc$','\.swp$']
 let NERDTreeSortOrder=['^__\.py$','\/$','*','\.swp$','\~$']
 let NERDTreeShowBookmarks=1
-
-" --------------------------
-" Snipmate
-" --------------------------
-" default mappings interfere with ycm & jedi
-imap <leader><Tab> <Plug>snipMateNextOrTrigger
-smap <leader><Tab> <Plug>snipMateNextOrTrigger
 
 " --------------------------
 " Syntastic

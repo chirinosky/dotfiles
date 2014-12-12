@@ -3,13 +3,13 @@
 wget -qO - https://raw.github.com/chirinosky/dotfiles/master/install.sh |bash
 ```
 
-## Features ##
-
 ### vim ###
+Install and configure the plugins below:
 * [Vundle](https://github.com/gmarik/Vundle.vim)
-* [Fugitive](https://github.com/tpope/vim-fugitive)
 * [NERDTree](https://github.com/scrooloose/nerdtree)
-* [NERDCommenter](https://github.com/scrooloose/nerdcommenter)
 * [Powerline](https://github.com/Lokaltog/powerline)
 * [Syntastic](https://github.com/scrooloose/syntastic)
 * [SimpylFold](https://github.com/tmhedberg/SimpylFold)
+* [Hybrid Color Scheme](https://github.com/w0ng/vim-hybrid)
+* [Jedi for Python3](https://github.com/davidhalter/jedi-vim)
+* [YouCompleteMe for Python2 and other languages](https://github.com/Valloric/YouCompleteMe)
