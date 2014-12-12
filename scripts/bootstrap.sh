@@ -8,6 +8,7 @@ symlink_vim() {
         vim_files+=($file)
     done
     if [ ${#vim_files[@]} -gt 0 ]; then
+        echo "Backing up existing vim runtime configs..."
         mkdir -p "$OLDDOTFILES/vim"
         for file in ${vim_files[@]}; do
             mv "$HOME/$file" "$OLDDOTFILES/vim/$file"
@@ -21,27 +22,30 @@ symlink_vim() {
         mkdir -p $OLDDOTFILES/vi
         mv $HOME/$vi_file $OLDDOTFILES/vi/$vi_file
     fi
+    echo "done."
 
-    echo "Configuring vim settings and plugins..."
+    echo -n "Linking to new vimrc..."
     ln -s "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
-    echo "symlinked .vimrc"
+    echo "done."
 }
 
 upgrade_vim() {
     if [ -z "$(command -v vim)" ]; then
-        echo "Installing required vim packages..."
+        echo -n "Installing required vim packages..."
         sudo apt-get -y install vim-gui-common vim-runtime >& /dev/null
+        echo "done."
     else
-        echo "vim looks good so far..."
+        echo "vim found, skipping installation..."
     fi
 }
 
 configure_vim_plugins() {
-    echo "Installing and configuring Vundle"
+    echo -n "Installing vim plugins..."
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
     vim -i NONE -c VundleUpdate -c quitall
-    echo "Done... installing Powerline fonts"
+    echo "done."
+    echo -n "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
     FONTCFG="$HOME/.fonts.conf.d"
     mkdir -p $FONTS
@@ -51,7 +55,7 @@ configure_vim_plugins() {
     mkdir -p $FONTCFG
     wget -qO $FONTCFG/10-powerline-symbols.conf \
         https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-    echo "Powerline fonts installed."
+    echo "done."
 }
 
 upgrade_vim
