@@ -23,3 +23,4 @@ Install and configure the plugins below:
 * Underline cursor
 * Custom color palette
 * Solid background color
+* Liberation Mono 11 font
