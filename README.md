@@ -2,9 +2,10 @@
 ```bash
 wget -qO - https://raw.github.com/chirinosky/dotfiles/master/install.sh |bash
 ```
-Apps Installed
+## Apps Installed ##
 * git
 * vim
+
 ### vim ###
 Install and configure the plugins below:
 * [Vundle](https://github.com/gmarik/Vundle.vim)

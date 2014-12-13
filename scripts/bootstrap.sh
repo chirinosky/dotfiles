@@ -8,7 +8,7 @@ symlink_vim() {
         vim_files+=($file)
     done
     if [ ${#vim_files[@]} -gt 0 ]; then
-        echo "Backing up existing vim runtime configs..."
+        echo -n "Backing up existing vim runtime configs..."
         mkdir -p "$OLDDOTFILES/vim"
         for file in ${vim_files[@]}; do
             mv "$HOME/$file" "$OLDDOTFILES/vim/$file"
@@ -51,7 +51,7 @@ configure_vim_plugins() {
     mkdir -p $FONTS
     wget -qO $FONTS/PowerlineSymbols.otf \
         https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-    fc-cache -vf $FONTS
+    fc-cache -vf $FONTS >& /dev/null
     mkdir -p $FONTCFG
     wget -qO $FONTCFG/10-powerline-symbols.conf \
         https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf

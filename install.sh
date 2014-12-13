@@ -9,7 +9,6 @@ install_git() {
 }
 
 if [ ! -d "$HOME/.dotfiles" ]; then
-    echo "Configuring dotfiles..."
     echo -n "Updating repos..."
     sudo apt-get update >& /dev/null
     echo "done."
