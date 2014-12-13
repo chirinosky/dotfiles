@@ -16,3 +16,10 @@ Install and configure the plugins below:
 * [Hybrid Color Scheme](https://github.com/w0ng/vim-hybrid)
 * [Jedi](https://github.com/davidhalter/jedi-vim) for Python3
 * [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for Python2 and other languages
+
+## System Changes ##
+
+### gnome-terminal ###
+* Underline cursor
+* Custom color palette
+* Solid background color

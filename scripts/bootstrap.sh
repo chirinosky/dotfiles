@@ -58,7 +58,18 @@ configure_vim_plugins() {
     echo "done."
 }
 
+configure_gnome_terminal() {
+    echo -n "Configuring gnome-terminal..."
+    if [ -z "$(command -v gnome-terminal)" ]; then
+        echo "Not found, skipping."
+        return 0
+    fi
+    gconftool-2 --load $HOME/.dotfiles/terminals/gnome-terminal-conf.xml
+    echo "done."
+}
+
 upgrade_vim
 symlink_vim
 configure_vim_plugins
-#echo "Restart your terminal to ensure Powerline fonts are properly displayed"
+configure_gnome_terminal
+echo "Restart your terminal to all settings and fonts are properly displayed"
