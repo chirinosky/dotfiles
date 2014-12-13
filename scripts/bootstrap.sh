@@ -43,7 +43,7 @@ configure_vim_plugins() {
     echo -n "Installing vim plugins..."
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
-    (bash -c "vim -i NONE -c VundleUpdate -c quitall")
+    vim -i NONE -c VundleUpdate -c quitall - >& /dev/null
     echo "done."
     echo -n "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
