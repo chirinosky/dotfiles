@@ -78,10 +78,10 @@ install_zsh() {
     fi
 }
 
-upgrade_vim
-symlink_vim
-configure_vim_plugins
-configure_gnome_terminal
+#upgrade_vim
+#symlink_vim
+#configure_vim_plugins
+#configure_gnome_terminal
 install_zsh
 sudo chsh -s "$(command -v zsh)"
 echo "Restart your terminal to all settings and fonts are properly displayed"
