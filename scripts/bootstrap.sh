@@ -78,10 +78,17 @@ install_zsh() {
     fi
 }
 
+configure_zsh() {
+    echo -n "Linking to new zshrc..."
+    ln -s "$HOME/.dotfiles/zsh/zshrc" "$HOME/.zshrc"
+    echo "done."
+    sudo chsh -s "$(command -v zsh)"
+}
+
 #upgrade_vim
 #symlink_vim
 #configure_vim_plugins
 #configure_gnome_terminal
-install_zsh
-sudo chsh -s "$(command -v zsh)"
-echo "Restart your terminal to all settings and fonts are properly displayed"
+#install_zsh
+configure_zsh
+echo "Restart your desktop session to ensure all settings took place."
