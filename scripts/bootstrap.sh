@@ -68,8 +68,20 @@ configure_gnome_terminal() {
     echo "done."
 }
 
+install_zsh() {
+    if [ -z "$(command -v zsh)" ]; then
+        echo -n "Installing zsh..."
+        sudo apt-get install -y zsh >& /dev/null
+        echo "done."
+    else
+        echo "zsh installation found...skipping install."
+    fi
+}
+
 upgrade_vim
 symlink_vim
 configure_vim_plugins
 configure_gnome_terminal
+install_zsh
+sudo chsh -s "$(command -v zsh)"
 echo "Restart your terminal to all settings and fonts are properly displayed"
