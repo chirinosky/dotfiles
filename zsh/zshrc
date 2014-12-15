@@ -1,3 +1,5 @@
+export ZSH=$HOME/.dotfiles
+
 # Personal .zshrc file
 # Maintained by Ramces Chirino <http://chirinosky.com>
 
@@ -12,9 +14,10 @@ fpath=(~/.dotfiles/zsh/functions $fpath)
 setopt prompt_subst                                   # Evaluate prompt whenever displayed
 
 autoload -Uz colors && colors                         # Colorize output
-autoload -Uz git_prompt_info && git_prompt_info       # Get current branch
-autoload -Uz parse_git_dirty && parse_git_dirty       # Get state of current branch
-autoload -Uz git_remote_status && git_remote_status   # Get difference between local/remote branches
+#autoload -Uz git_prompt_info && git_prompt_info       # Get current branch
+#autoload -Uz parse_git_dirty && parse_git_dirty       # Get state of current branch
+#autoload -Uz git_remote_status && git_remote_status   # Get difference between local/remote branches
+
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[grey]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
