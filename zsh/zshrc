@@ -1,6 +1,6 @@
 # Personal .zshrc file
 # Maintained by Ramces Chirino <http://chirinosky.com>
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/.dotfiles/zsh
 
 for config_file ($ZSH/lib/*.zsh); do
     source $config_file
