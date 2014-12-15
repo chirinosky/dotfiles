@@ -4,11 +4,7 @@
 setopt prompt_subst                                   # Evaluate prompt whenever displayed
 autoload -Uz colors && colors                         # Colorize output
 
-for COLOR in BLACK RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-    FG_$COLOR='%{fg_no_bold[$COLOR]%}'
-done
-
-ZSH_THEME_GIT_PROMPT_PREFIX="$FG_GREY($FG_RED"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[grey]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[grey]%}) %{$fg[yellow]%}⚡%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[grey]%})"
