@@ -9,4 +9,4 @@ done
 # ==================================================
 # General
 # ==================================================
-fpath=(~/.dotfiles/zsh/functions $fpath)
+setopt INC_APPEND_HISTORY                       # Add entry to history as soon as it's entered.
