@@ -4,5 +4,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Directory listing
+alias ls='ls --color'
 alias lsa='ls -lah'
 alias ll='ls -lh'

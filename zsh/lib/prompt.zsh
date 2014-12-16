@@ -1,5 +1,6 @@
 setopt prompt_subst                                   # Evaluate prompt whenever displayed
 autoload -Uz colors && colors                         # Colorize output
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 # git states
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[grey]%}(%{$fg[red]%}"
