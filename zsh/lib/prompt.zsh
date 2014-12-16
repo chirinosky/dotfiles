@@ -24,7 +24,6 @@ PROMPT='%{$fg_bold[grey]%}[%{$reset_color%}%{$fg_bold[green]%}%n@%m%{$reset_colo
 # ==================================================
 # Terminal title
 # ==================================================
-function title() {
-    print -Pn "\e]2;%~\a"  # Display pwd
+function precmd {
+    print -Pn "\e]2;%~\a"  # current directory
 }
-chpwd_functions=(${chpwd_functions[@]} "title")
