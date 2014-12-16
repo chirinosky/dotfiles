@@ -8,6 +8,10 @@ install_git() {
     fi
 }
 
+configure_git() {
+    git config --global core.excludesfile ~/.dotfiles/git/gitignore
+}
+
 symlink_vim() {
     OLDDOTFILES="$HOME/olddotfiles"
 
@@ -103,6 +107,7 @@ else
     echo "Aborted because a .dotfiles folder is present"
     exit
 fi
+configure_git
 #upgrade_vim
 #symlink_vim
 #configure_vim_plugins
