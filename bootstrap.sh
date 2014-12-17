@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 install_git() {
     if [ -z "$(command -v git)" ]; then
