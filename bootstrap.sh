@@ -97,21 +97,21 @@ configure_zsh() {
     sudo chsh -s "$(command -v zsh)"
 }
 
-if [ ! -d "$HOME/.dotfiles" ]; then
-    echo -n "Updating system repos..."
-    sudo apt-get update >& /dev/null
-    echo "done."
-    install_git
-    git clone https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
-else
-    echo "Aborted because a .dotfiles folder is present"
-    exit
-fi
-configure_git
+#if [ ! -d "$HOME/.dotfiles" ]; then
+#    echo -n "Updating system repos..."
+#    sudo apt-get update >& /dev/null
+#    echo "done."
+#    install_git
+#    git clone https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
+#else
+#    echo "Aborted because a .dotfiles folder is present"
+#    exit
+#fi
+#configure_git
 #upgrade_vim
 #symlink_vim
 #configure_vim_plugins
 #configure_gnome_terminal
 #install_zsh
-configure_zsh
+#configure_zsh
 echo "Restart your desktop session to ensure all settings took place."

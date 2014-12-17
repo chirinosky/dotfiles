@@ -1,3 +1,7 @@
+[alias]
+g = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold
+blue)<%an>%Creset' --abbrev-commit --date=relative
+
 [color]
 ui = true
 
@@ -16,3 +20,9 @@ new = green bold
 added = yellow
 changed = green
 untracked = red
+
+[url "https://github.com/"]
+    insteadOf = gh:
+
+[url "https://gist.github.com/"]
+    insteadOf = gist:

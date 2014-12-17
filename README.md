@@ -6,11 +6,12 @@ wget -qO - https://raw.github.com/chirinosky/dotfiles/master/bootstrap.sh |bash
 **Note:** The command above will perform a full install.
 
 
-## Apps Installed ##
-* git
-
-
 ## Modifications ##
+### git ###
+* Global excludes file
+* Aliases & shortcuts
+* Enabled color scheme
+
 ### vim ###
 
 #### Plugins ####
