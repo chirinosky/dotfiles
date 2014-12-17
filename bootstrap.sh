@@ -9,7 +9,8 @@ install_git() {
 }
 
 configure_git() {
-    git config --global core.excludesfile ~/.dotfiles/git/gitignore
+    ln -s "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
+    git config --global core.excludesfile "$HOME/.dotfiles/git/gitignore"
 }
 
 symlink_vim() {
