@@ -106,7 +106,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     sudo apt-get update >& /dev/null
     echo "done."
     install_git
-    git clone develop https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
+    git clone -b develop https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
 else
     echo "Aborted because a .dotfiles folder is present"
     exit
