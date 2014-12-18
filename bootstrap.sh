@@ -1,5 +1,21 @@
 #!/bin/bash
 
+install_git() {
+    if [ -z "$(command -v git)" ]; then
+        echo -n "Installation"
+        sudo apt-get -y install git >& /dev/null
+    else
+        echo "git found, skipping install"
+    fi
+}
+
+configure_git() {
+    echo -n "Configuring git..."
+    ln -s "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
+    git config --global core.excludesfile "$HOME/.dotfiles/git/gitignore"
+    echo "done."
+}
+
 symlink_vim() {
     OLDDOTFILES="$HOME/olddotfiles"
 
@@ -43,7 +59,7 @@ configure_vim_plugins() {
     echo -n "Installing vim plugins..."
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
-    vim -i NONE -c VundleUpdate -c quitall - >& /dev/null
+    vim -i NONE -c VundleUpdate -c quitall
     echo "done."
     echo -n "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
@@ -68,8 +84,38 @@ configure_gnome_terminal() {
     echo "done."
 }
 
+install_zsh() {
+    if [ -z "$(command -v zsh)" ]; then
+        echo -n "Installing zsh..."
+        sudo apt-get install -y zsh >& /dev/null
+        echo "done."
+    else
+        echo "zsh installation found...skipping install."
+    fi
+}
+
+configure_zsh() {
+    echo -n "Linking to new zshrc..."
+    ln -s "$HOME/.dotfiles/zsh/zshrc" "$HOME/.zshrc"
+    echo "done."
+    sudo chsh -s "$(command -v zsh)"
+}
+
+if [ ! -d "$HOME/.dotfiles" ]; then
+    echo -n "Updating system repos..."
+    sudo apt-get update >& /dev/null
+    echo "done."
+    install_git
+    git clone -b develop https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
+else
+    echo "Aborted because a .dotfiles folder is present"
+    exit
+fi
+configure_git
+configure_gnome_terminal
+install_zsh
+configure_zsh
 upgrade_vim
 symlink_vim
 configure_vim_plugins
-configure_gnome_terminal
-echo "Restart your terminal to all settings and fonts are properly displayed"
+printf "Restart your desktop session to ensure all settings took place."
