@@ -2,12 +2,9 @@
 
 install_git() {
     if [ -z "$(command -v git)" ]; then
-        get_status
         echo -n "Installation"
         sudo apt-get -y install git >& /dev/null
-        get_status $?
     else
-        get_status $?
         echo "git found, skipping install"
     fi
 }
@@ -109,7 +106,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     sudo apt-get update >& /dev/null
     echo "done."
     install_git
-    git clone https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
+    git clone https://github.com/chirinosky/develop/dotfiles.git $HOME/.dotfiles >& /dev/null
 else
     echo "Aborted because a .dotfiles folder is present"
     exit
