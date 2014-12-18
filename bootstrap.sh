@@ -2,15 +2,21 @@
 
 install_git() {
     if [ -z "$(command -v git)" ]; then
-        echo -n "git not found, installing..."
+        get_status
+        echo -n "Installation"
         sudo apt-get -y install git >& /dev/null
-        echo "done."
+        get_status $?
+    else
+        get_status $?
+        echo "git found, skipping install"
     fi
 }
 
 configure_git() {
+    echo -n "Configuring git..."
     ln -s "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
     git config --global core.excludesfile "$HOME/.dotfiles/git/gitignore"
+    echo "done."
 }
 
 symlink_vim() {
@@ -56,7 +62,7 @@ configure_vim_plugins() {
     echo -n "Installing vim plugins..."
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
-    vim -i NONE -c VundleUpdate -c quitall - >& /dev/null
+    vim -i NONE -c VundleUpdate -c quitall
     echo "done."
     echo -n "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
@@ -109,10 +115,10 @@ else
     exit
 fi
 configure_git
-upgrade_vim
-symlink_vim
-configure_vim_plugins
 configure_gnome_terminal
 install_zsh
 configure_zsh
+upgrade_vim
+symlink_vim
+configure_vim_plugins
 echo "Restart your desktop session to ensure all settings took place."
