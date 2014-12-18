@@ -118,4 +118,4 @@ configure_zsh
 upgrade_vim
 symlink_vim
 configure_vim_plugins
-echo "Restart your desktop session to ensure all settings took place."
+printf "Restart your desktop session to ensure all settings took place."

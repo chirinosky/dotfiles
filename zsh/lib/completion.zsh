@@ -1,5 +1,7 @@
 autoload -Uz compinit && compinit
 
+setopt COMPLETE_IN_WORD                           # Completion takes place at cursor position.
+setopt ALWAYS_TO_END                              # Cursor moved to end of word after completion.
 unsetopt LIST_BEEP                                # Don't beep when ambiguous completion performed.
 
 zstyle ':completion:*' menu select                # Enable menu to cycle completions
