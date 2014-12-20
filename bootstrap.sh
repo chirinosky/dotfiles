@@ -72,8 +72,8 @@ function install_zsh() {
         sudo apt-get install -y zsh >& /dev/null
     else
         echo "zsh found...skipping install."
-        configure_zsh
     fi
+        configure_zsh
 }
 
 function install_vim_plugins() {
@@ -106,4 +106,4 @@ fi
 configure_gnome_terminal
 install_zsh
 install_vim
-printf "Restart your desktop session to ensure all settings took place.\n"
+printf "\nRestart your desktop session to ensure all settings took place.\n"
