@@ -12,7 +12,6 @@ install_git() {
 configure_git() {
     echo -n "Configuring git..."
     ln -s "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
-    git config --global core.excludesfile "$HOME/.dotfiles/git/gitignore"
     echo "done."
 }
 
