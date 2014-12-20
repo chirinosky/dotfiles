@@ -48,24 +48,22 @@ function configure_zsh() {
 
 function install_git() {
     if [[ -z "$(command -v git)" ]]; then
-        echo -n "Installing git..."
+        echo "Installing git..."
         sudo apt-get -y install git >& /dev/null
-        echo "done"
-        configure_git
     else
-        echo "git found, skipping install"
+        echo "git found, skipping install..."
     fi
+    configure_git
 }
 
 function install_vim() {
     if [[ -z "$(command -v vim)" ]]; then
-        echo -n "Installing vim..."
+        echo "Installing vim..."
         sudo apt-get install -y vim-gui-common vim-runtime >& /dev/null
-        echo "done."
-        configure_vim
-        install_vim_plugins
     else
         echo "vim found, skipping installation..."
+        configure_vim
+        install_vim_plugins
     fi
 }
 
@@ -74,9 +72,9 @@ function install_zsh() {
         echo -n "Installing zsh..."
         sudo apt-get install -y zsh >& /dev/null
         echo "done"
-        configure_zsh
     else
         echo "zsh found...skipping install."
+        configure_zsh
     fi
 }
 
@@ -100,9 +98,8 @@ function install_vim_plugins() {
 }
 
 if [ ! -d "$HOME/.dotfiles" ]; then
-    echo -n "Updating system repos..."
+    echo "Updating system repos..."
     sudo apt-get update >& /dev/null
-    echo "done."
     install_git
     git clone https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
 else
@@ -112,4 +109,4 @@ fi
 configure_gnome_terminal
 install_zsh
 install_vim
-printf "Restart your desktop session to ensure all settings took place."
+printf '%s\n' 'Restart your desktop session to ensure all settings took place.'
