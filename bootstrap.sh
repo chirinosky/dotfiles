@@ -12,6 +12,7 @@ install_git() {
 configure_git() {
     echo -n "Configuring git..."
     ln -s "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
+    ln -s "$HOME/.dotfiles/git/gitignore" "$HOME/.gitignore"
     echo "done."
 }
 
