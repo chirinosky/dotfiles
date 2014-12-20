@@ -106,4 +106,4 @@ fi
 configure_gnome_terminal
 install_zsh
 install_vim
-printf "%s\n" 'Restart your desktop session to ensure all settings took place.'
+printf "Restart your desktop session to ensure all settings took place.\n"
