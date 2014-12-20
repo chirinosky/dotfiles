@@ -21,9 +21,13 @@ ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="%{$fg_bold[magenta]%}↕%{$reset_color%}"
 PROMPT='%{$fg_bold[grey]%}[%{$reset_color%}%{$fg_bold[green]%}%n@%m%{$reset_color%}%{$fg_bold[grey]%}]%{$reset_color%} %{$fg_bold[blue]%}%10c%{$reset_color%} $(git_prompt_info) $(git_remote_status)
 %{$fg_bold[cyan]%}❯%{$reset_color%} '
 
-# ==================================================
-# Terminal title
-# ==================================================
-function precmd {
+# Blank line after commands
+function blanks() {
+    print ""
+}
+
+# Display current directory on terminal title
+function terminal_title() {
     print -Pn "\e]2;%~\a"  # current directory
 }
+precmd_functions=($precmd_functions terminal_title blanks)
