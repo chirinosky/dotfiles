@@ -53,7 +53,6 @@ function install_git() {
     else
         echo "git found, skipping install..."
     fi
-    configure_git
 }
 
 function install_vim() {
@@ -69,9 +68,8 @@ function install_vim() {
 
 function install_zsh() {
     if [[ -z "$(command -v zsh)" ]]; then
-        echo -n "Installing zsh..."
+        echo "Installing zsh..."
         sudo apt-get install -y zsh >& /dev/null
-        echo "done"
     else
         echo "zsh found...skipping install."
         configure_zsh
@@ -79,11 +77,10 @@ function install_zsh() {
 }
 
 function install_vim_plugins() {
-    echo -n "Installing vim plugins..."
+    echo "Installing vim plugins..."
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
     vim -i NONE -c VundleUpdate -c quitall
-    echo "done"
     echo -n "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
     FONTCFG="$HOME/.fonts.conf.d"
@@ -94,7 +91,6 @@ function install_vim_plugins() {
     mkdir -p $FONTCFG
     wget -qO $FONTCFG/10-powerline-symbols.conf \
         https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-    echo "done."
 }
 
 if [ ! -d "$HOME/.dotfiles" ]; then
@@ -102,6 +98,7 @@ if [ ! -d "$HOME/.dotfiles" ]; then
     sudo apt-get update >& /dev/null
     install_git
     git clone https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
+    configure_git
 else
     echo "Aborted because a .dotfiles folder is present"
     exit
@@ -109,4 +106,4 @@ fi
 configure_gnome_terminal
 install_zsh
 install_vim
-printf '%s\n' 'Restart your desktop session to ensure all settings took place.'
+printf "%s\n" 'Restart your desktop session to ensure all settings took place.'
