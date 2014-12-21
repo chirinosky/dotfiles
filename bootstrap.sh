@@ -20,7 +20,7 @@ function backup_dotfile() {
 function configure_git() {
     echo "Configuring git..."
     backup_dotfile "git"
-    cp "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
+    cp "$HOME/.dotfiles/git/gitconfig.template" "$HOME/.gitconfig"
     cp "$HOME/.dotfiles/git/gitignore" "$HOME/.gitignore"
 }
 

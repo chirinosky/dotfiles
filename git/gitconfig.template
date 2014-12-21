@@ -1,0 +1,2 @@
+[include]
+path = $HOME/.dotfiles/git/gitconfig
