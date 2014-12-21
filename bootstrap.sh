@@ -36,7 +36,7 @@ function configure_gnome_terminal() {
 function configure_vim() {
     echo "Configuring vim..."
     backup_dotfile "vim"
-    cp "$HOME/.dotfiles/vim/vimrc" "$HOME/.vimrc"
+    cp "$HOME/.dotfiles/vim/vimrc.template" "$HOME/.vimrc"
 }
 
 function configure_zsh() {
