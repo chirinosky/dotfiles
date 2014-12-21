@@ -46,35 +46,44 @@ function configure_zsh() {
     sudo chsh -s "$(command -v zsh)"
 }
 
-function install_git() {
-    if [[ -z "$(command -v git)" ]]; then
-        echo "Installing git..."
-        sudo apt-get -y install git >& /dev/null
+function install() {
+    if [[ -z "$(command -v $1)" ]]; then
+        printf 'Installing %s...\n' "$1"
+        sudo apt-get -y install "$1" >& /dev/null
     else
-        echo "git found, skipping install..."
+        printf '%s found, skipping install...' "$1"
     fi
 }
 
-function install_vim() {
-    if [[ -z "$(command -v vim)" ]]; then
-        echo "Installing vim..."
-        sudo apt-get install -y vim-gui-common vim-runtime >& /dev/null
-    else
-        echo "vim found, skipping installation..."
-        configure_vim
-        install_vim_plugins
-    fi
-}
+#function install_git() {
+#    if [[ -z "$(command -v git)" ]]; then
+#        echo "Installing git..."
+#        sudo apt-get -y install git >& /dev/null
+#    else
+#        echo "git found, skipping install..."
+#    fi
+#}
 
-function install_zsh() {
-    if [[ -z "$(command -v zsh)" ]]; then
-        echo "Installing zsh..."
-        sudo apt-get install -y zsh >& /dev/null
-    else
-        echo "zsh found...skipping install."
-    fi
-        configure_zsh
-}
+#function install_vim() {
+#    if [[ -z "$(command -v vim)" ]]; then
+#        echo "Installing vim..."
+#        sudo apt-get install -y vim-gui-common vim-runtime >& /dev/null
+#    else
+#        echo "vim found, skipping installation..."
+#        configure_vim
+#        install_vim_plugins
+#    fi
+#}
+
+#function install_zsh() {
+#    if [[ -z "$(command -v zsh)" ]]; then
+#        echo "Installing zsh..."
+#        sudo apt-get install -y zsh >& /dev/null
+#    else
+#        echo "zsh found...skipping install."
+#    fi
+#        configure_zsh
+#}
 
 function install_vim_plugins() {
     echo "Installing vim plugins..."
@@ -96,7 +105,7 @@ function install_vim_plugins() {
 if [ ! -d "$HOME/.dotfiles" ]; then
     echo "Updating system repos..."
     sudo apt-get update >& /dev/null
-    install_git
+    install git
     git clone https://github.com/chirinosky/dotfiles.git $HOME/.dotfiles >& /dev/null
     configure_git
 else
@@ -104,6 +113,9 @@ else
     exit
 fi
 configure_gnome_terminal
-install_zsh
-install_vim
+install zsh
+configure_zsh
+install "vim-gui-common vim-runtime"
+configure_vim
+install_vim_plugins
 printf "\nRestart your desktop session to ensure all settings took place.\n"
