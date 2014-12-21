@@ -55,8 +55,10 @@ set wildmenu                        " better command-line completion
 set hlsearch                        " highlight searches
 set ignorecase                      " case-insensitive search
 set smartcase                       " case-sensitive if first letter is capital
-"set nofoldenable                    " don't fold code when loading
 set textwidth=99
+
+" <ESC> to clear search highlights
+nnoremap <silent> <esc> :nohlsearch<cr><esc>
 
 " Highlight column
 set colorcolumn=100
