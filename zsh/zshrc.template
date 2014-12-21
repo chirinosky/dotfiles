@@ -1,0 +1,2 @@
+# Load zsh settings
+source $HOME/.dotfiles/zsh/zshrc

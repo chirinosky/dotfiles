@@ -1,5 +1,3 @@
-export ZSH=$HOME/.dotfiles/zsh
-
-for config_file ($ZSH/lib/*.zsh); do
+for config_file (lib/*.zsh); do
     source $config_file
 done

@@ -42,7 +42,7 @@ function configure_vim() {
 function configure_zsh() {
     echo "Configuring zsh..."
     backup_dotfile "zsh"
-    cp "$HOME/.dotfiles/zsh/zshrc" "$HOME/.zshrc"
+    cp "$HOME/.dotfiles/zsh/zshrc.template" "$HOME/.zshrc"
     sudo chsh -s "$(command -v zsh)"
 }
 
