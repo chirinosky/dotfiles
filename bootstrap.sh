@@ -51,46 +51,16 @@ function install() {
         printf 'Installing %s...\n' "$1"
         sudo apt-get -y install "$1" >& /dev/null
     else
-        printf '%s found, skipping install...' "$1"
+        printf '%s found, skipping install...\n' "$1"
     fi
 }
-
-#function install_git() {
-#    if [[ -z "$(command -v git)" ]]; then
-#        echo "Installing git..."
-#        sudo apt-get -y install git >& /dev/null
-#    else
-#        echo "git found, skipping install..."
-#    fi
-#}
-
-#function install_vim() {
-#    if [[ -z "$(command -v vim)" ]]; then
-#        echo "Installing vim..."
-#        sudo apt-get install -y vim-gui-common vim-runtime >& /dev/null
-#    else
-#        echo "vim found, skipping installation..."
-#        configure_vim
-#        install_vim_plugins
-#    fi
-#}
-
-#function install_zsh() {
-#    if [[ -z "$(command -v zsh)" ]]; then
-#        echo "Installing zsh..."
-#        sudo apt-get install -y zsh >& /dev/null
-#    else
-#        echo "zsh found...skipping install."
-#    fi
-#        configure_zsh
-#}
 
 function install_vim_plugins() {
     echo "Installing vim plugins..."
     git clone https://github.com/gmarik/Vundle.vim.git \
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
     vim -i NONE -c VundleUpdate -c quitall
-    echo -n "Installing Powerline fonts..."
+    echo "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
     FONTCFG="$HOME/.fonts.conf.d"
     mkdir -p $FONTS
