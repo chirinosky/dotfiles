@@ -1,2 +1,2 @@
-# Load vim settings
+" Load vim settings
 source $HOME/.dotfiles/vim/vimrc
