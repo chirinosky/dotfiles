@@ -25,7 +25,7 @@
       <key>global/default_profile</key>
       <schema_key>/schemas/apps/gnome-terminal/global/default_profile</schema_key>
       <value>
-        <string>Default</string>
+        <string>Profile0</string>
       </value>
     </entry>
     <entry>
@@ -285,21 +285,21 @@
       <key>profiles/Default/background_darkness</key>
       <schema_key>/schemas/apps/gnome-terminal/profiles/Default/background_darkness</schema_key>
       <value>
-        <float>0.5</float>
+        <float>0.55932199999999999</float>
       </value>
     </entry>
     <entry>
       <key>profiles/Default/background_image</key>
       <schema_key>/schemas/apps/gnome-terminal/profiles/Default/background_image</schema_key>
       <value>
-        <string></string>
+        <string>/media/sf_d_drive/logo_white.png</string>
       </value>
     </entry>
     <entry>
       <key>profiles/Default/background_type</key>
       <schema_key>/schemas/apps/gnome-terminal/profiles/Default/background_type</schema_key>
       <value>
-        <string>solid</string>
+        <string>transparent</string>
       </value>
     </entry>
     <entry>
@@ -425,7 +425,7 @@
       <key>profiles/Default/scroll_background</key>
       <schema_key>/schemas/apps/gnome-terminal/profiles/Default/scroll_background</schema_key>
       <value>
-        <bool>true</bool>
+        <bool>false</bool>
       </value>
     </entry>
     <entry>

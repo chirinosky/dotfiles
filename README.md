@@ -28,7 +28,7 @@ wget -qO - https://raw.github.com/chirinosky/dotfiles/master/bootstrap.sh |bash
 ### gnome-terminal ###
 * Underline cursor style
 * Custom color palette
-* Solid background color
+* Transparent background
 * Liberation Mono 11 font
 
 ### zsh ###
