@@ -29,12 +29,12 @@ function make_default() {
   local vim_binary="${vimpath}/bin/${vim_name}"
   local editor_path="$(command -v editor)"
   local vi_path="$(command -v vi)"
-  local vim_path="$(command -v vim)"
+  local sys_vim_path="$(command -v vim)"
   sudo update-alternatives --install "$editor_path" editor "${vim_binary}" 1
   sudo update-alternatives --set editor "${vim_binary}"
   sudo update-alternatives --install "$vi_path" vi "${vim_binary}" 1
   sudo update-alternatives --set vi "${vim_binary}"
-  sudo update-alternatives --install "$vim_path" vim "${vim_binary}" 1
+  sudo update-alternatives --install "${sys_vim_path}" vim "${vim_binary}" 1
   sudo update-alternatives --set vim "${vim_binary}"
 
 }
