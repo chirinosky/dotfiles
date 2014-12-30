@@ -43,7 +43,7 @@ function configure_zsh() {
     echo "Configuring zsh..."
     backup_dotfile "zsh"
     cp "$HOME/.dotfiles/zsh/zshrc.template" "$HOME/.zshrc"
-    sudo chsh -s "$(command -v zsh)"
+    chsh -s "$(command -v zsh)"
 }
 
 function install() {
@@ -85,7 +85,8 @@ fi
 configure_gnome_terminal
 install zsh
 configure_zsh
-install "vim vim-runtime"
+install vim
+install vim-runtime
 configure_vim
 install_vim_plugins
 printf "\nRestart your desktop session to ensure all settings took place.\n"
