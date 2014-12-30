@@ -61,8 +61,10 @@ function install_vim_plugins() {
         $HOME/.dotfiles/vim/bundle/Vundle.vim >& /dev/null
     vim -i NONE -c VundleUpdate -c quitall
     # YCM
-    sudo apt-get install -y cmake python-dev &&
+    sudo apt-get install -y cmake
+    sudo apt-get install -y python-dev
     cd "${HOME}"/.dotfiles/vim/bundle/YouCompleteMe && ./install.sh
+    # Powerline
     echo "Installing Powerline fonts..."
     FONTS="$HOME/.fonts"
     FONTCFG="$HOME/.fonts.conf.d"
