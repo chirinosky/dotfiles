@@ -43,7 +43,7 @@ function configure_zsh() {
     echo "Configuring zsh..."
     backup_dotfile "zsh"
     cp "$HOME/.dotfiles/zsh/zshrc.template" "$HOME/.zshrc"
-    chsh -s "$(command -v zsh)"
+    sudo usermod -s "$(command -v zsh)" "$(whoami)"
 }
 
 function install() {
