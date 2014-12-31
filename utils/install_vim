@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Installs the latest vim version from the project's repo (mercurial required).
 # Run the script with -h for usage info.
 
 set -e
@@ -29,7 +28,7 @@ function make_default() {
   local vim_binary="${vimpath}/bin/${vim_name}"
   local editor_path="$(command -v editor)"
   local vi_path="$(command -v vi)"
-  local sys_vim_path="$(command -v vim)"
+  local sys_vim_path="$(type vim| cut -d' ' -f3)"
   sudo update-alternatives --install "$editor_path" editor "${vim_binary}" 1
   sudo update-alternatives --set editor "${vim_binary}"
   sudo update-alternatives --install "$vi_path" vi "${vim_binary}" 1
