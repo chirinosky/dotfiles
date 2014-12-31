@@ -41,8 +41,8 @@ while getopts ':dhn:p:P' opt; do
   case "${opt}" in
     d)
       sys_vim_path="$(type vim| cut -d' ' -f3)"
-      echo $sys_vim_path
-      default=true ;;
+      default=true
+      ;;
     h) help ;;
     n) vim_name="${OPTARG}" ;;
     p) vimpath="${OPTARG}" ;;
