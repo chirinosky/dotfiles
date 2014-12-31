@@ -28,7 +28,6 @@ function make_default() {
   local vim_binary="${vimpath}/bin/${vim_name}"
   local editor_path="$(command -v editor)"
   local vi_path="$(command -v vi)"
-  local sys_vim_path="$(type vim| cut -d' ' -f3)"
   sudo update-alternatives --install "$editor_path" editor "${vim_binary}" 1
   sudo update-alternatives --set editor "${vim_binary}"
   sudo update-alternatives --install "$vi_path" vi "${vim_binary}" 1
@@ -40,7 +39,10 @@ function make_default() {
 
 while getopts ':dhn:p:P' opt; do
   case "${opt}" in
-    d) default=true ;;
+    d)
+      sys_vim_path="$(type vim| cut -d' ' -f3)"
+      echo $sys_vim_path
+      default=true ;;
     h) help ;;
     n) vim_name="${OPTARG}" ;;
     p) vimpath="${OPTARG}" ;;
