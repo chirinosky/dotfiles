@@ -64,7 +64,7 @@ function install_vim_plugins() {
     # YCM
     sudo apt-get install -y cmake
 #    sudo apt-get install -y python-dev
-    cd "${DOTFILES}"/vim/bundle/YouCompleteMe && ./install.sh
+    bash "${DOTFILES}"/vim/bundle/YouCompleteMe/install.sh
     # Powerline
     echo "Installing Powerline fonts..."
     FONTS="${HOME}/.fonts"
@@ -91,7 +91,7 @@ fi
 configure_gnome_terminal
 install zsh
 configure_zsh
-cd "${DOTFILES}"/utils && ./install_vim -d
+bash "${DOTFILES}"/utils/install_vim -d
 configure_vim
 install_vim_plugins
 printf "\nRestart your desktop session to ensure all settings took place.\n"
