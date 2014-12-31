@@ -1,5 +1,6 @@
 #!/bin/bash
 
+unset CDPATH
 readonly OLDDOTFILES="$HOME/olddotfiles"
 
 function backup_dotfile() {
