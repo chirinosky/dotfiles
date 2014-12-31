@@ -91,7 +91,8 @@ fi
 configure_gnome_terminal
 install zsh
 configure_zsh
-cd "${DOTFILES}" && ./install_vim -d
+cd "${DOTFILES}"
+./install_vim -d
 configure_vim
 install_vim_plugins
 printf "\nRestart your desktop session to ensure all settings took place.\n"
