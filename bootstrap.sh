@@ -1,28 +1,40 @@
 #!/bin/bash
+set -e
 
-readonly OLDDOTFILES="${HOME}/olddotfiles"
-readonly DOTFILES="${HOME}/.dotfiles"
+readonly STD_HOME_PATH="/home"
+readonly DOTFILES_FOLDER_NAME=".dotfiles"
+readonly DOTFILES_BACKUP_FOLDER_NAME="dotfiles.old"
+
+if [[ ! "$(whoami)" == "root" ]]; then
+    echo "Aborting... this script requires you to run as root"
+    exit
+fi
 
 function backup_dotfile() {
     local dotfiles
-    for file in $(ls -a ${HOME} |grep $1); do
-        dotfiles+=($file)
+    for file in $(ls -a ${home} | grep "$1"); do
+        dotfiles+=(${file})
     done
     if [[ ${#dotfiles[@]} -gt 0 ]]; then
-        local DOTFOLDER="${OLDDOTFILES}/$1"
-        echo "Backing up existing configs..."
-        mkdir -p "${DOTFOLDER}"
+        local dotfolder="${dotfiles_backup}/$1"
+        echo "Backing up existing config..."
+        mkdir -p "${dotfolder}"
         for file in ${dotfiles[@]}; do
-            mv "${HOME}/${file}" "${DOTFOLDER}/${file}"
+            mv "${home}/${file}" "${dotfolder}/${file}"
         done
+        chown -R ${username}:${username} ${dotfolder}
     fi
 }
 
 function configure_git() {
     echo "Configuring git..."
     backup_dotfile "git"
-    cp "${DOTFILES}/git/gitconfig.template" "$HOME/.gitconfig"
-    cp "${DOTFILES}/git/gitignore" "$HOME/.gitignore"
+    local gitconfig="${home}/.gitconfig"
+    local gitignore="${home}/.gitignore"
+    cp "${dotfiles}/git/gitconfig.template" ${gitconfig}
+    cp "${dotfiles}/git/gitignore" ${gitignore}
+    chown ${username}:${username} ${gitconfig}
+    chown ${username}:${username} ${gitignore}
 }
 
 function configure_gnome_terminal() {
@@ -31,26 +43,30 @@ function configure_gnome_terminal() {
         echo "Not found, skipping."
         return 0
     fi
-    gconftool-2 --load ${DOTFILES}/terminals/gnome-terminal-conf.xml
+    gconftool-2 --load ${dotfiles}/terminals/gnome-terminal-conf.xml
 }
 
 function configure_vim() {
     echo "Configuring vim..."
     backup_dotfile "vim"
-    cp "${DOTFILES}/vim/vimrc.template" "${HOME}/.vimrc"
+    local vimrc="${home}/.vimrc"
+    cp "${dotfiles}/vim/vimrc.template" ${vimrc}
+    chown -R ${username}:${username} ${vimrc}
 }
 
 function configure_zsh() {
     echo "Configuring zsh..."
     backup_dotfile "zsh"
-    cp "${DOTFILES}/zsh/zshrc.template" "${HOME}/.zshrc"
-    sudo usermod -s "$(command -v zsh)" "$(whoami)"
+    local zshrc="${home}/.zshrc"
+    cp "${dotfiles}/zsh/zshrc.template" ${zshrc}
+    chown -R ${username}:${username} ${zshrc}
+    usermod -s "$(command -v zsh)" "${username}"
 }
 
 function install() {
     if [[ -z "$(command -v $1)" ]]; then
         printf 'Installing %s...\n' "$1"
-        sudo apt-get -y install "$1" >& /dev/null
+        apt-get -y install "$1" >& /dev/null
     else
         printf '%s found, skipping install...\n' "$1"
     fi
@@ -58,17 +74,16 @@ function install() {
 
 function install_vim_plugins() {
     echo "Installing vim plugins..."
-    git clone https://github.com/gmarik/Vundle.vim.git \
-        ${DOTFILES}/vim/bundle/Vundle.vim >& /dev/null
-    vim -i NONE -c VundleUpdate -c quitall
-    # YCM
-    sudo apt-get install -y cmake
-#    sudo apt-get install -y python-dev
-    bash "${DOTFILES}"/vim/bundle/YouCompleteMe/install.sh
-    # Powerline
+    python_support="$(vi --version | grep "+python")"
+    if [[ -z ${python_support} ]]; then
+        apt-get install -y vim-gnome
+    fi
+    su - ${username} -c "git clone https://github.com/gmarik/Vundle.vim.git \
+        ${dotfiles}/vim/bundle/Vundle.vim >& /dev/null"
+    su - ${username} -c "vim -i NONE -c VundleUpdate -c quitall"
     echo "Installing Powerline fonts..."
-    FONTS="${HOME}/.fonts"
-    FONTCFG="${HOME}/.fonts.conf.d"
+    FONTS="${home}/.fonts"
+    FONTCFG="${home}/.fonts.conf.d"
     mkdir -p "${FONTS}"
     wget -qO ${FONTS}/PowerlineSymbols.otf \
         https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
@@ -76,22 +91,45 @@ function install_vim_plugins() {
     mkdir -p ${FONTCFG}
     wget -qO ${FONTCFG}/10-powerline-symbols.conf \
         https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+    chown -R ${username}:${username} ${FONTS}
+    chown -R ${username}:${username} ${FONTCFG}
 }
 
-if [ ! -d "${DOTFILES}" ]; then
-    echo "Updating system repos..."
-    sudo apt-get update >& /dev/null
-    install git
-    git clone https://github.com/chirinosky/dotfiles.git ${DOTFILES} >& /dev/null
-    configure_git
-else
-    echo "Aborted because a .dotfiles folder is present"
-    exit
+# Prepare user environment
+declare -a user=('root')
+for dir in $(find $STD_HOME_PATH -maxdepth 1 -type d -printf '%P\n'); do
+    user+=(${dir})
+done
+if [[ ${#user[@]} -gt 0 ]]; then
+    echo 'User to modify:'
+    counter=0
+    for username in ${user[@]}; do
+        echo "  ${counter} : ${username}"
+        counter=$[${counter} +1]
+    done
+    read -p 'Number selected: ' usernum
+    if [[ ${usernum} == 0 ]]; then
+        home='/root'
+    else
+        home="${STD_HOME_PATH}/${user[usernum]}"
+    fi
 fi
-configure_gnome_terminal
+username="${user[usernum]}"
+dotfiles="${home}/${DOTFILES_FOLDER_NAME}"
+dotfiles_backup="${home}/${DOTFILES_BACKUP_FOLDER_NAME}"
+if [[ -d ${dotfiles} ]]; then
+  echo "Aborting... a .dotfiles directory already exists"
+  exit
+fi
+
+echo "Updating system repos..."
+apt-get update >& /dev/null
+install git
+git clone https://github.com/chirinosky/dotfiles.git ${dotfiles} >& /dev/null
+chown -R ${username}:${username} ${dotfiles}
+configure_git
 install zsh
 configure_zsh
-bash "${DOTFILES}"/utils/install_vim -d
 configure_vim
 install_vim_plugins
-printf "\nRestart your desktop session to ensure all settings took place.\n"
+#configure_gnome_terminal

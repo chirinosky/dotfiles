@@ -26,11 +26,11 @@ Bundle 'tmhedberg/SimpylFold'
 Bundle 'scrooloose/syntastic'
 
 " Version-specific python plugins
-if has('python')
-Bundle 'Valloric/YouCompleteMe'
-elseif has('python3')
-Bundle 'davidhalter/jedi-vim'
-endif
+"if has('python')
+"Bundle 'Valloric/YouCompleteMe'
+"elseif has('python3')
+"Bundle 'davidhalter/jedi-vim'
+"endif
 
 " ==================================================
 " General
@@ -40,6 +40,7 @@ set mouse=a                         " enable mouse for all modes
 let mapleader = ","                 " personal shortcut key
 try
     colorscheme hybrid              " use default color scheme if
+    set background=dark
 catch /^Vim\%((\a\+)\)\=:E185/      " the one set is not found
     colorscheme default
 endtry
