@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 readonly STD_HOME_PATH="/home"
 readonly DOTFILES_FOLDER_NAME=".dotfiles"
@@ -76,7 +75,7 @@ function install_vim_plugins() {
     echo "Installing vim plugins..."
     python_support="$(vi --version | grep "+python")"
     if [[ -z ${python_support} ]]; then
-        apt-get install -y vim-gnome
+        apt-get install -y vim-gnome >& /dev/null
     fi
     su - ${username} -c "git clone https://github.com/gmarik/Vundle.vim.git \
         ${dotfiles}/vim/bundle/Vundle.vim >& /dev/null"
