@@ -5,3 +5,5 @@ setopt APPEND_HISTORY                           # Multiple terminal sessions sha
 setopt INC_APPEND_HISTORY                       # Add entry to history as soon as it's entered
 setopt HIST_IGNORE_DUPS                         # Do not write already-existing history events
 setopt HIST_REDUCE_BLANKS                       # Remove extra blanks from commands added to history
+bindkey '\e[B' history-search-forward
+bindkey '\e[A' history-search-backward

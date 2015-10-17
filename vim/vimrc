@@ -79,6 +79,7 @@ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅    " Show tab character and tra
 set backspace=indent,eol,start              " Allow backspace over everything
 set showmatch                               " Show matching parenthesis
 set pastetoggle=<F2>                        " Toggle to prevent auto-indents
+set nofoldenable                            " Disable folding
 
 " Improved indentation
 vnoremap < <gv
