@@ -50,6 +50,7 @@ function configure_vim() {
     backup_dotfile "vim"
     local vimrc="${home}/.vimrc"
     cp "${dotfiles}/vim/vimrc.template" ${vimrc}
+    ln -s "${dotfiles}/vim" .vim
     chown -R ${username}:${username} ${vimrc}
 }
 
