@@ -85,9 +85,6 @@ set nofoldenable                            " Disable folding
 vnoremap < <gv
 vnoremap > >gv
 
-" Detect shorthand markdown files
-au BufNewFile,BufReadPost *.md set filetype=markdown
-
 " ==================================================
 " Plugins
 " ==================================================
