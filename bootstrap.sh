@@ -42,7 +42,7 @@ function configure_gnome_terminal() {
         echo "Not found, skipping."
         return 0
     fi
-    gconftool-2 --load ${dotfiles}/terminals/gnome-terminal-conf.xml
+    ${dotfiles}/terminals/terminal-sexy.sh
 }
 
 function configure_vim() {
