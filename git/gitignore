@@ -4,3 +4,9 @@ __pycache__/
 
 # Vim
 *.swp
+
+# Sass
+.sass-cache/
+
+# SQL
+*.sqlite
