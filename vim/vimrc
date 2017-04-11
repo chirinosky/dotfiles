@@ -77,7 +77,7 @@ map <c-l> <c-w>l
 set expandtab                               " tabs/indents use spaces
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅    " Show tab character and trailing whitespace
 set backspace=indent,eol,start              " Allow backspace over everything
-set showmatch                               " Show matching parenthesis
+hi MatchParen cterm=none ctermbg=none ctermfg=red " Show matching parenthesis
 set pastetoggle=<F2>                        " Toggle to prevent auto-indents
 set nofoldenable                            " Disable folding
 
