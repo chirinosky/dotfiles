@@ -1,7 +1,7 @@
 ## Installation ##
 To get started please run:
 ```bash
-wget -qO - https://raw.github.com/chirinosky/dotfiles/master/bootstrap.sh |bash
+wget -qO - https://raw.github.com/chirinosky/dotfiles/master/bootstrap.py |python
 ```
 **Note:** The command above will perform a full install.
 
