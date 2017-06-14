@@ -59,6 +59,7 @@ def configure_vim():
     os.rename('{0}/vimrc.template'.format(base_home_dir),
               '{0}/.vimrc'.format(base_home_dir))
     cmd('chown {0}:{0} {1}/.vimrc'.format(username, base_home_dir))
+    cmd('ln -s {0}/vim {1}/.vim'.format(dotfiles_dir, base_home_dir))
 
 def configure_zsh():
     print('Configuring zsh...')
