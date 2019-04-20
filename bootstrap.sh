@@ -7,7 +7,7 @@ export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijk
 
 if [ "$OS" = "linux" ]; then
 	# Install basic packages
-	for pkg in build-essential python-dev 
+	for pkg in build-essential python-dev vim git
 	do
 		apt install -y $pkg
 	done
