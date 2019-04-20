@@ -9,7 +9,7 @@ if [ "$OS" = "linux" ]; then
 	# Install basic packages
 	for pkg in build-essential python-dev vim git apt-transport-https
 	do
-		$(apt install -y $pkg)
+		apt install -y $pkg
 	done
 
 	# Install Sublime Text
