@@ -1,3 +1,0 @@
-for config_file ($HOME/.dotfiles/zsh/lib/*.zsh); do
-    source $config_file
-done

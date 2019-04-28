@@ -12,19 +12,20 @@ if [ "$OS" = "linux" ]; then
 	DOTFILES="$HOME/.dotfiles"
 
 	# User prerequisites
-	printf "\n*******************\n"
+	printf "\e[33m\n*******************\n"
     printf "USER ACTION REQUIRED"
 	printf "\n*******************\n"
-	printf "1. Create a random gone-terminal profile\n\n"
+	printf "1. Create a random gone-terminal profile\n\n\e[0m"
 	read -n1 -r -p "Quit(q)/Continue(spacebar) " key
 	if [ "$key" = q ]; then
 		exit 0
 	else
+		printf "\n\n"
 		continue
 	fi
 
 	# Install basic packages
-	for pkg in apt-transport-https build-essential python-dev vim git powerline-fonts
+	for pkg in apt-transport-https build-essential python-dev vim git fonts-powerline
 	do
 		apt install -y $pkg
 	done
@@ -35,7 +36,7 @@ if [ "$OS" = "linux" ]; then
     fi
 
     # Update gnome-terminal color pallette
-    #source $DOTFILES/terminals/terminal-sexy.sh
+    source $DOTFILES/terminals/terminal-sexy.sh
 
     ## vim
     VIM_DIR="$DOTFILES/vim"
@@ -49,12 +50,12 @@ if [ "$OS" = "linux" ]; then
     wget -qO - https://raw.githubusercontent.com/powerline/fonts/master/install.sh |bash
 
 	# Install Sublime Text
-#	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
-#	echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-#	apt update
-#	apt install -y sublime-text
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
+	echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
+	apt update
+	apt install -y sublime-text
 
 	# Update gnome-terminal color pallette
-	printf "\nUpdates complete. Don't forget to:\n"
-	printf "1. Set your default gnome-terminal profile\n"
+	printf "\e[33m\nUpdates complete. Don't forget to:\n"
+	printf "1. Set your default gnome-terminal profile\n\e[0m"
 fi

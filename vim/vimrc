@@ -22,15 +22,7 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/powerline'
-Bundle 'tmhedberg/SimpylFold'
 Bundle 'scrooloose/syntastic'
-
-" Version-specific python plugins
-"if has('python')
-"Bundle 'Valloric/YouCompleteMe'
-"elseif has('python3')
-"Bundle 'davidhalter/jedi-vim'
-"endif
 
 " ==================================================
 " General
@@ -85,16 +77,6 @@ set nofoldenable                            " Disable folding
 " Improved indentation
 vnoremap < <gv
 vnoremap > >gv
-
-" ==================================================
-" Plugins
-" ==================================================
-" --------------------------
-" Jedi
-" --------------------------
-" Disable preview doc during autocomplete
-let g:jedi#auto_vim_configuration=0
-set completeopt=menuone,longest
 
 " --------------------------
 " Nerd Tree
