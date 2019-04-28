@@ -15,8 +15,8 @@ if [ "$OS" = "linux" ]; then
 	printf "\n*******************\n"
     printf "USER ACTION REQUIRED"
 	printf "\n*******************\n"
-	printf "1. Create a random gone-terminal profile\n"
-	read -n1 -r -p "Quit(q)/Continue(spacebar)" key
+	printf "1. Create a random gone-terminal profile\n\n"
+	read -n1 -r -p "Quit(q)/Continue(spacebar) " key
 	if [ "$key" = q ]; then
 		exit 0
 	else
@@ -24,7 +24,7 @@ if [ "$OS" = "linux" ]; then
 	fi
 
 	# Install basic packages
-	for pkg in apt-transport-https build-essential python-dev vim git
+	for pkg in apt-transport-https build-essential python-dev vim git powerline-fonts
 	do
 		apt install -y $pkg
 	done
@@ -35,39 +35,18 @@ if [ "$OS" = "linux" ]; then
     fi
 
     # Update gnome-terminal color pallette
-    source $DOTFILES/terminals/terminal-sexy.sh
+    #source $DOTFILES/terminals/terminal-sexy.sh
 
     ## vim
-    $VIM_DIR="$DOTFILES/vim"
-    cp $VIM_DIR/vimrc.template $HOME/vimrc
+    VIM_DIR="$DOTFILES/vim"
+    cp $VIM_DIR/vimrc.template $HOME/.vimrc
     
     # Install Vundle
     test -d $VIM_DIR/bundle/Vundle.vim || git clone https://github.com/gmarik/Vundle.vim.git $VIM_DIR/bundle/Vundle.vim
     vim +BundleInstall +qall
 
-#def install_vim_plugins():
-#    print('Installing vim plugins...')
-#    vim_version =  subprocess.Popen(shlex.split('vim --version'), stdout=subprocess.PIPE)
-#    python_support = subprocess.check_output(shlex.split('grep +python'),stdin=vim_version.stdout)
-#    if not python_support:
-#        cmd('apt-get install -y vim-gnome')
-#    cmd('git clone https://github.com/gmarik/Vundle.vim.git \
-#            {0}/vim/bundle/Vundle.vim'.format(dotfiles_dir))
-#    cmd('vim -i NONE -c VundleUpdate -c quitall')
-#    print('Installing Powerline fonts...')
-#    fonts = '{0}/.fonts'.format(base_home_dir)
-#    font_config = '{0}/.fonts.conf.d'.format(base_home_dir)
-#    if not os.path.exists(fonts):
-#        os.makedirs(fonts)
-#    cmd('wget -qO {0}/PowerlineSymbols.otf \
-#            https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf'.format(fonts))
-#    cmd('fc-cache -vf {0}'.format(fonts))
-#    if not os.path.exists(font_config):
-#        os.makedirs(font_config)
-#    cmd('wget -qO {0}/10-powerline-symbols.conf \
-#            https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf'.format(font_config))
-#    cmd('chown -R {0}:{0} {1}/'.format(username, fonts))
-#    cmd('chown -R {0}:{0} {1}/'.format(username, font_config))
+    # Install Powerline fonts
+    wget -qO - https://raw.githubusercontent.com/powerline/fonts/master/install.sh |bash
 
 	# Install Sublime Text
 #	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
