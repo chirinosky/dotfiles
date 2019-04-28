@@ -12,9 +12,14 @@ if [ "$OS" = "linux" ]; then
 	DOTFILES="$HOME/.dotfiles"
 
 	# User prerequisites
-	prereq = "Quit(q)/Continue(spacebar)\n"
-	read -n1 -r -p $prereq key
-	if [ "$key" = '' ]; then
+	printf "\n**********\n"
+    printf "USER ACTION REQUIRED"
+	printf "\n**********\n"
+	printf "1. Create a random gone-terminal profile\n"
+	read -n1 -r -p "\nQuit(q)/Continue(spacebar)\n" key
+	if [ "$key" = q ]; then
+		exit 0
+	else
 		continue
 	fi
 
