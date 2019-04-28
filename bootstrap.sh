@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # TODO
-#   - CherryTree preferences
+#	- Terminal prompt   
+#	- CherryTree preferences
 
 # Exit immediately if a command exits with a non-zero status
 set -e
@@ -35,27 +36,29 @@ if [ "$OS" = "linux" ]; then
         git clone https://github.com/chirinosky/dotfiles.git $DOTFILES
     fi
 
-    # Update gnome-terminal color pallette
+    # ********** GNOME-TERMINAL **********
+    # New profile
     source $DOTFILES/terminals/terminal-sexy.sh
+    # Bash
+    cp $DOTFILES/terminals/bash/bashrc.template $HOME/.bashrc
+    source $HOME/.bashrc
 
-    ## vim
+    # ********** VIM **********
     VIM_DIR="$DOTFILES/vim"
     cp $VIM_DIR/vimrc.template $HOME/.vimrc
-    
     # Install Vundle
     test -d $VIM_DIR/bundle/Vundle.vim || git clone https://github.com/gmarik/Vundle.vim.git $VIM_DIR/bundle/Vundle.vim
     vim +BundleInstall +qall
-
     # Install Powerline fonts
     wget -qO - https://raw.githubusercontent.com/powerline/fonts/master/install.sh |bash
 
-	# Install Sublime Text
+	# ********** SUBLIME TEXT **********
 	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
 	echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 	apt update
 	apt install -y sublime-text
 
-	# Update gnome-terminal color pallette
+	# Post-Install Reminders
 	printf "\e[33m\nUpdates complete. Don't forget to:\n"
 	printf "1. Set your default gnome-terminal profile\n\e[0m"
 fi
