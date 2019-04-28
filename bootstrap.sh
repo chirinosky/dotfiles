@@ -12,18 +12,11 @@ if [ "$OS" = "linux" ]; then
 	DOTFILES="$HOME/.dotfiles"
 
 	# User prerequisites
-	printf "\n 1. Create a new gnome-terminal profile\n"
-	printf "Press q to quit, or any key to continue\n"
-	while [true];
-	do
-		read -n 1 k <&1
-		if [[ $k = q ]]; then
-			printf "\n Exiting...\n"
-			exit 0
-		else
-			break
-		fi
-	done
+	prereq = "Quit(q)/Continue(spacebar)\n"
+	read -n1 -r -p $prereq key
+	if [ "$key" = '' ]; then
+		continue
+	fi
 
 	# Install basic packages
 	for pkg in apt-transport-https build-essential python-dev vim git
