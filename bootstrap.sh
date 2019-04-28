@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO
-#	- Terminal prompt   
+# TODO 
 #	- CherryTree preferences
 
 # Exit immediately if a command exits with a non-zero status
@@ -41,7 +40,6 @@ if [ "$OS" = "linux" ]; then
     source $DOTFILES/terminals/terminal-sexy.sh
     # Bash
     cp $DOTFILES/terminals/bash/bashrc.template $HOME/.bashrc
-    source $HOME/.bashrc
 
     # ********** VIM **********
     VIM_DIR="$DOTFILES/vim"
@@ -58,7 +56,12 @@ if [ "$OS" = "linux" ]; then
 	apt update
 	apt install -y sublime-text
 
+	# ********** CHERRYTREE **********
+	test -d $HOME/.config/cherrytree || mkdir $HOME/.config/cherrytree
+	ln -s $DOTFILES/cherrytree/config.cfg $HOME/.config/cherrytree/config.cfg
+
 	# Post-Install Reminders
 	printf "\e[33m\nUpdates complete. Don't forget to:\n"
-	printf "1. Set your default gnome-terminal profile\n\e[0m"
+	printf "1. Set your default gnome-terminal profile\n"
+	printf "2. Close and reopen this terminal\e[0m"
 fi
