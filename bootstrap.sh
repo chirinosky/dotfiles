@@ -12,11 +12,11 @@ if [ "$OS" = "linux" ]; then
 	DOTFILES="$HOME/.dotfiles"
 
 	# User prerequisites
-	printf "\n**********\n"
+	printf "\n*******************\n"
     printf "USER ACTION REQUIRED"
-	printf "\n**********\n"
+	printf "\n*******************\n"
 	printf "1. Create a random gone-terminal profile\n"
-	read -n1 -r -p "\nQuit(q)/Continue(spacebar)\n" key
+	read -n1 -r -p "Quit(q)/Continue(spacebar)" key
 	if [ "$key" = q ]; then
 		exit 0
 	else
@@ -76,6 +76,6 @@ if [ "$OS" = "linux" ]; then
 #	apt install -y sublime-text
 
 	# Update gnome-terminal color pallette
-	echo "Customization complete. Remember to:"
-	echo "Update gnome-terminal default profile"
+	printf "\nUpdates complete. Don't forget to:\n"
+	printf "1. Set your default gnome-terminal profile\n"
 fi
