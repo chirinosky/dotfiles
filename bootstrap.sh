@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO 
-#	- CherryTree preferences
-
 # Exit immediately if a command exits with a non-zero status
 set -e
 
@@ -63,5 +60,5 @@ if [ "$OS" = "linux" ]; then
 	# Post-Install Reminders
 	printf "\e[33m\nUpdates complete. Don't forget to:\n"
 	printf "1. Set your default gnome-terminal profile\n"
-	printf "2. Close and reopen this terminal\e[0m"
+	printf "2. Close and reopen this terminal\e[0m\n\n"
 fi
