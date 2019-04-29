@@ -12,8 +12,8 @@ if [ "$OS" = "linux" ]; then
 	printf "\e[33m\n*******************\n"
     printf "USER ACTION REQUIRED"
 	printf "\n*******************\n"
-	printf "1. Create a random gone-terminal profile\n\n\e[0m"
-	read -n1 -r -p "Quit(q)/Continue(spacebar) " key
+	printf "1. Create a random gnone-terminal profile\n\n\e[0m"
+	read -n1 -r -p "Quit(q)/Continue(any) " key
 	if [ "$key" = q ]; then
 		exit 0
 	else
@@ -31,12 +31,6 @@ if [ "$OS" = "linux" ]; then
     if [ ! -d $DOTFILES ]; then
         git clone https://github.com/chirinosky/dotfiles.git $DOTFILES
     fi
-
-    # ********** GNOME-TERMINAL **********
-    # New profile
-    source $DOTFILES/terminals/terminal-sexy.sh
-    # Bash
-    cp $DOTFILES/terminals/bash/bashrc.template $HOME/.bashrc
 
     # ********** VIM **********
     VIM_DIR="$DOTFILES/vim"
@@ -56,6 +50,12 @@ if [ "$OS" = "linux" ]; then
 	# ********** CHERRYTREE **********
 	test -d $HOME/.config/cherrytree || mkdir $HOME/.config/cherrytree
 	ln -s $DOTFILES/cherrytree/config.cfg $HOME/.config/cherrytree/config.cfg
+
+    # ********** GNOME-TERMINAL **********
+    # Bash
+    cp $DOTFILES/terminals/bash/bashrc.template $HOME/.bashrc
+    # New profile
+    source $DOTFILES/terminals/terminal-sexy.sh
 
 	# Post-Install Reminders
 	printf "\e[33m\nUpdates complete. Don't forget to:\n"
