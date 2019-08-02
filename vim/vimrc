@@ -44,6 +44,7 @@ set ruler                           " always show cursor position
 set cursorline                      " line on cur location
 set title                           " change terminal's title
 set nowrap                          " don't wrap text on load
+set formatoptions-=t                " don't wrap text during edit
 set wildmenu                        " better command-line completion
 set hlsearch                        " highlight searches
 set ignorecase                      " case-insensitive search
