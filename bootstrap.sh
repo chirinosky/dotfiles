@@ -49,13 +49,18 @@ if [ "$OS" = "linux" ]; then
 
 	# ********** CHERRYTREE **********
 	test -d $HOME/.config/cherrytree || mkdir $HOME/.config/cherrytree
-	ln -s $DOTFILES/cherrytree/config.cfg $HOME/.config/cherrytree/config.cfg
+    # Don't link file because the app constantly updates it
+	cp $DOTFILES/cherrytree/config.cfg $HOME/.config/cherrytree/config.cfg
 
     # ********** GNOME-TERMINAL **********
     # Bash
     cp $DOTFILES/terminals/bash/bashrc.template $HOME/.bashrc
     # New profile
     source $DOTFILES/terminals/terminal-sexy.sh
+
+    # ********** SUBLIME TEXT **********
+    test -d $HOME/.config/sublime-text-3/Packages/User || mkdir -p $HOME/.config/sublime-text-3/Packages/User
+    ln -s $DOTFILES/sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
 
 	# Post-Install Reminders
 	printf "\e[33m\nUpdates complete. Don't forget to:\n"
