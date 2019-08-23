@@ -1,0 +1,8 @@
+
+
+# If applied, this commit will...
+# [Add/Fix/Remove/Update/Refactor/Document]
+# Empty line between subject and body
+# Resolves: #123
+# See also: #456, #789
+# https://chris.beams.io/posts/git-commit/

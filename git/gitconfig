@@ -1,30 +1,34 @@
-[alias]
-g = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[user]
+    name = NAME_PLACEHOLDER
+    email = EMAIL_PLACEHOLDER
 
 [color]
-ui = true
-
-[color "branch"]
-current = yellow bold
-local = magenta
-remote = green
-
-[color "diff"]
-meta = yellow bold
-frag = magenta bold
-old = red bold
-new = green bold
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
 
 [color "status"]
-added = yellow
-changed = green
-untracked = red
+    added = green
+    changed = blue
+    untracked = red
 
-[url "https://github.com/"]
-    insteadOf = gh:
+[color "diff"]
+    meta = yellow
+    old = red
+    new = green
 
-[url "https://gist.github.com/"]
-    insteadOf = gist:
+[color "branch"]
+    current = yellow bold
+    local = magenta
+    remote = red
 
 [core]
-excludesfile = ~/.gitignore
+    editor = vim
+    excludesfile = ~/.config/git/ignore
+
+[commit]
+    template = ~/.config/git/message
+
+[alias]
+    g = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
