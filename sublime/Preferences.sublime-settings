@@ -1,19 +1,13 @@
 {
-    // Editor
-    "highlight_line": true,
-    "caret_style": "phase",
-    // GUI
-    "bold_folder_labels": true,
-    "highlight_modified_tabs": true,
-    "show_encoding": true,
-
-    // Programming Best Practices
-    "ensure_newline_at_eof_on_save": false,
-    "translate_tabs_to_spaces": true,
-
-
-    "ignored_packages":
-    [
-        "Vintage"
-    ]
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"ensure_newline_at_eof_on_save": false,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_encoding": true,
+	"translate_tabs_to_spaces": true
 }
