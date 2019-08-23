@@ -21,6 +21,9 @@ PKG_SETTINGS_PATH="$HOME/.config/sublime-text-3/Packages/User"
 test -d $PKG_SETTINGS_PATH || mkdir -p $PKG_SETTINGS_PATH
 cp "Package Control.sublime-settings" $PKG_SETTINGS_PATH
 
+# Needed for sublack to run
+pip3 install black
+
 # PREFERENCES
 # ** USER
 rm "$PKG_SETTINGS_PATH/Preferences.sublime-settings" # Remove old defaults
