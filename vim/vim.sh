@@ -3,7 +3,7 @@
 cd vim/
 
 # Install packages
-sudo apt install -y vim fonts-powerline
+sudo apt install -y vim-nox fonts-powerline
 
 # Preferences
 cp vimrc.template $HOME/.vimrc
