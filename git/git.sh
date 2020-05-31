@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install
-apt install -y git
+sudo apt install -y git
 
 cd git/
 

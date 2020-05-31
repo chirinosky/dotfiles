@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Install general packages
-apt update
+sudo apt update
 for pkg in build-essential python-dev
 do
-    apt install -y $pkg
+    sudo apt install -y $pkg
 done

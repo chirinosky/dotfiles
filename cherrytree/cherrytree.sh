@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install
-apt install -y cherrytree
+sudo apt install -y cherrytree
 
 cd cherrytree
 # Don't link the config because the app constantly updates it

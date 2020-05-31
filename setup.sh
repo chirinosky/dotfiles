@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apt update && apt upgrade -y
+sudo apt update && apt upgrade -y
 
 cd "$(dirname "$0")"
 scripts/app_installs.sh

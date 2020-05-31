@@ -4,11 +4,11 @@ set -e
 cd sublime/
 
 # Install Sublime
-apt install -y apt-transport-https
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
+sudo apt install -y apt-transport-https
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
-apt update
-apt install -y sublime-text
+sudo apt update
+sudo apt install -y sublime-text
 
 # Install Packages
 # The package manager will automatically download and install them when ST3 is launched
@@ -22,7 +22,7 @@ test -d $PKG_SETTINGS_PATH || mkdir -p $PKG_SETTINGS_PATH
 cp "Package Control.sublime-settings" $PKG_SETTINGS_PATH
 
 # Needed for sublack to run
-apt install -y python3-pip
+sudo apt install -y python3-pip
 pip3 install black
 
 # PREFERENCES
