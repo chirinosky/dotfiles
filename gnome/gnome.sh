@@ -41,8 +41,8 @@ gsettings set $terminal_profile allow-bold "true"
 gsettings set $terminal_profile rewrap-on-resize "true"
 
 # ***** DESKTOP *****
-gnome-shell-extension-tool -e window-list
-gnome-shell-extension-tool -d dash-to-dock
+gnome-extensions enable window-list@gnome-shell-extensions.gcampax.github.com
+gnome-extensions disable dash-to-dock@micxgx.gmail.com
 gsettings set org.gnome.desktop.privacy remove-old-temp-files "true"
 gsettings set org.gnome.desktop.privacy remove-old-trash-files "true"
 gsettings set org.gnome.desktop.privacy old-files-age "uint32 30"
