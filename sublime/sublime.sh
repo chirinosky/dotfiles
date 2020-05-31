@@ -22,11 +22,14 @@ test -d $PKG_SETTINGS_PATH || mkdir -p $PKG_SETTINGS_PATH
 cp "Package Control.sublime-settings" $PKG_SETTINGS_PATH
 
 # Needed for sublack to run
+apt install -y python3-pip
 pip3 install black
 
 # PREFERENCES
 # ** USER
-rm "$PKG_SETTINGS_PATH/Preferences.sublime-settings" # Remove old defaults
+if [ -f "$PKG_SETTINGS_PATH/Preferences.sublime-settings" ]; then
+    rm "$PKG_SETTINGS_PATH/Preferences.sublime-settings" # Remove old defaults
+fi
 ln -s "$(pwd)/Preferences.sublime-settings" "$PKG_SETTINGS_PATH/Preferences.sublime-settings"
 # **** key bindings
 ln -s "$(pwd)/Default (Linux).sublime-keymap" "$PKG_SETTINGS_PATH/Default (Linux).sublime-keymap"

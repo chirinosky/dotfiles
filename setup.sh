@@ -2,6 +2,7 @@
 
 apt update && apt upgrade -y
 
+cd "$(dirname "$0")"
 scripts/app_installs.sh
 bash/bash.sh
 tmux/tmux.sh
