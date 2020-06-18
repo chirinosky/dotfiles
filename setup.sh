@@ -13,7 +13,7 @@ case $OS in
 esac
 
 if [ $parrot ]; then
-	sudo apt update && apt full-upgrade -y
+	sudo apt update && sudo apt full-upgrade -y
 	cd "$(dirname "$0")"
 	scripts/app_installs.sh
 	git/git.sh
