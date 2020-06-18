@@ -22,7 +22,7 @@
 # uuid=$(gsettings get org.gnome.Terminal.ProfilesList default)
 # uuid=${uuid:1:-1}
 # terminal_profile="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${uuid}/"
-profile_id = (gsettings get org.mate.terminal.global default-profile)
+profile_id=$(gsettings get org.mate.terminal.global default-profile)
 terminal_profile="org.mate.terminal.profile:/org/mate/terminal/profiles/${profile_id}/"
 # Hybrid Color Theme (http://terminal.sexy)
 gsettings set $terminal_profile \
