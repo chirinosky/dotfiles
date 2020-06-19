@@ -6,7 +6,8 @@ $HOME/.dotfiles/setup.sh
 ```
 
 ## DISCLAIMER ##
-This has only been tested on Kali Linux
+This has only been tested on Kali Linux and Parrot OS
 
 ## TODO ##
 Add heavily-used git repos
+Add Mac support
