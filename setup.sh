@@ -22,6 +22,7 @@ if [ $parrot ]; then
 	cherrytree/cherrytree.sh
 	vim/vim.sh
 	sublime/sublime.sh
+	mate/mate.sh
 elif [ $kali ]; then
 	gnome/gnome.sh
 fi
