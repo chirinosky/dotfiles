@@ -22,6 +22,9 @@ gsettings set $terminal_profile allow-bold "true"
 # ***** DESKTOP *****
 gsettings set org.mate.screensaver idle-activation-enabled "false"
 gsettings set org.mate.screensaver lock-enabled "false"
+gsettings set org.mate.background picture-filename ""
+gsettings set org.mate.background picture-options "wallpaper"
+gsettings set org.mate.background primary-color "rgb(85,87,83)"
 
 ## PANEL
 # Add frequently used apps to the top menu for quick access
