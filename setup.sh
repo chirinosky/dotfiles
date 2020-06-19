@@ -27,6 +27,11 @@ elif [ $kali ]; then
 	gnome/gnome.sh
 fi
 
-# If VM using vmware tools
-# /etc/fstab
-# .host:/		/mnt/hgfs/		fuse.vmhgfs-fuse		defaults,allow_other,uid=1000		0		0
+# VMWare tools and shared folders
+if [ -f /sys/class/dmi/id/product_name ]; then
+	MACHINE_TYPE=$(cat /sys/class/dmi/id/product_name)
+fi
+
+if [[ $MACHINE_TYPE == *"VMware"* ]]; then
+	sudo apt install open-vm-tools open-vm-tools-desktop -y
+	sudo echo ".host:/		/mnt/hgfs/		fuse.vmhgfs-fuse		defaults,allow_other,uid=1000		0		0" >> /etc/fstab
