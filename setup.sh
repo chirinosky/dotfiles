@@ -7,12 +7,12 @@ if [ -f /etc/os-release ]; then
 fi
 
 case $OS in
-    "Parrot GNU/Linux")
-        parrot=true
+    "Parrot GNU/Linux" | "Parrot Security")
+        PARROT=true
         ;;
 esac
 
-if [ $parrot ]; then
+if [ $PARROT ]; then
     sudo apt update && sudo apt full-upgrade -y
     cd "$(dirname "$0")"
     scripts/app_installs.sh

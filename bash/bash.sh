@@ -7,7 +7,7 @@ if [[ $SHLVL -lt 3 ]]; then
     fi
 
     case $OS in
-        "Parrot GNU/Linux")
+        "Parrot GNU/Linux" | "Parrot Security")
             parrot=true
             ;;
     esac
@@ -17,8 +17,8 @@ cd bash/
 
 cp "$(pwd)/bashrc.template" "$HOME/.bashrc"
 
-if [ $parrot ]; then
-    echo "export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH" >> "$HOME/.bashrc"
-fi
+# if [ $parrot ]; then
+#     echo "export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH" >> "$HOME/.bashrc"
+# fi
 
 source "$HOME/.bashrc"
