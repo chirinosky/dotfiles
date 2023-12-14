@@ -5,6 +5,10 @@ cd vim/
 # Install packages
 sudo apt install -y vim-nox fonts-powerline
 
+if [ $PARROT ]; then
+    # 20231214: The default vimrc causes an error when launching vim
+    sudo mv /etc/vim/vimrc /etc/vim/vimrc.orig
+
 # Preferences
 cp vimrc.template $HOME/.vimrc
 
