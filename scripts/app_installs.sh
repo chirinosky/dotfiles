@@ -1,14 +1,30 @@
 #!/usr/bin/env bash
 
-# Install general packages
+# General packages to install
+packages=("build-essential")
+
+# Distribution-specific
 if [ $PARROT ]; then
-    for pkg in build-essential python-dev-is-python3
-    do
-        sudo apt install -y $pkg
-    done
+    packages+=("python-dev-is-python3")
 else
-    for pkg in build-essential python-dev
+    packages+=("pyton-dev")
+fi
+
+# Install packages
+for pkg in "${packages[@]}"
     do
         sudo apt install -y $pkg
     done
-fi
+
+# # Install general packages
+# if [ $PARROT ]; then
+#     for pkg in build-essential python-dev-is-python3
+#     do
+#         sudo apt install -y $pkg
+#     done
+# else
+#     for pkg in build-essential python-dev
+#     do
+#         sudo apt install -y $pkg
+#     done
+# fi
