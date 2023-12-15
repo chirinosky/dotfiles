@@ -2,7 +2,6 @@
 
 # Install
 sudo apt install -y git
-
 cd git/
 
 # Link/Copy configs

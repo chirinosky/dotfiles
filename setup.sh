@@ -29,7 +29,13 @@ if [ $PARROT ]; then
 elif [ $KALI ]; then
     sudo apt update && sudo apt full-upgrade -y
     cd "$(dirname "$0")"
-    #gnome/gnome.sh
+    scripts/app_installs.sh
+    git/git.sh
+    tmux/tmux.sh
+    cherrytree/cherrytree.sh
+    vim/vim.sh
+    sublime/sublime.sh
+    qterminal/qterminal.sh
 fi
 
 # VMWare tools and shared folders
