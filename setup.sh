@@ -34,5 +34,8 @@ fi
 
 if [[ $MACHINE_TYPE == *"VMware"* ]]; then
     sudo apt install open-vm-tools open-vm-tools-desktop -y
-    echo ".host:/      /mnt/hgfs/      fuse.vmhgfs-fuse        defaults,allow_other,uid=1000       0       0" | sudo tee -a /etc/fstab
+    # Permanently mount shares with host
+    # https://communities.vmware.com/t5/VMware-Fusion-Discussions/shared-folders-are-not-visible-after-reboot/td-p/2913852
+    sudo mkdir -p /mnt/hgfs/
+    sudo /usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs/ -o subtype=vmhgfs-fuse,allow_other
 fi
