@@ -7,9 +7,12 @@ if [ -f /etc/os-release ]; then
 fi
 
 case $OS in
-    "Parrot GNU/Linux" | "Parrot Security")
-        PARROT=true
-        ;;
+"Parrot GNU/Linux" | "Parrot Security")
+    PARROT=true
+    ;;
+"Kali GNU/Linux")
+    KALI=true
+    ;;
 esac
 
 if [ $PARROT ]; then
@@ -23,8 +26,10 @@ if [ $PARROT ]; then
     vim/vim.sh
     sublime/sublime.sh
     mate/mate.sh
-elif [ $kali ]; then
-    gnome/gnome.sh
+elif [ $KALI ]; then
+    sudo apt update && sudo apt full-upgrade -y
+    cd "$(dirname "$0")"
+    #gnome/gnome.sh
 fi
 
 # VMWare tools and shared folders
