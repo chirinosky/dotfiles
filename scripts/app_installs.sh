@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # General packages to install
-packages=("build-essential", "curl")
+packages=("build-essential" "curl")
 
 # Distribution-specific
 if [ $PARROT ] || [ $KALI ]; then
