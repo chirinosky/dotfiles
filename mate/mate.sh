@@ -44,20 +44,26 @@ gsettings set $OBJECT object-type "launcher"
 gsettings set $OBJECT position 0
 gsettings set $OBJECT relative-to-edge "start"
 gsettings set $OBJECT tooltip ""
-gsettings set $OBJECT toplevel-id ""
+gsettings set $OBJECT toplevel-id "top"
 gsettings set $OBJECT use-custom-icon false
 gsettings set $OBJECT use-menu-path false
 
 ### CHERRYTREE
 OBJECT="org.mate.panel.object:/org/mate/panel/objects/cherrytree/"
 gsettings set $OBJECT action-type "none"
+gsettings set $OBJECT applet-iid ""
+gsettings set $OBJECT attached-toplevel-id ""
+gsettings set $OBJECT custom-icon ""
 gsettings set $OBJECT has-arrow true
 gsettings set $OBJECT launcher-location "/usr/share/applications/cherrytree.desktop"
 gsettings set $OBJECT locked false
 gsettings set $OBJECT menu-path "applications:/"
 gsettings set $OBJECT panel-right-stick false
 gsettings set $OBJECT object-type "launcher"
-gsettings set $OBJECT position -1
+gsettings set $OBJECT position 0
+gsettings set $OBJECT relative-to-edge "start"
+gsettings set $OBJECT tooltip ""
+gsettings set $OBJECT toplevel-id "top"
 gsettings set $OBJECT use-custom-icon false
 gsettings set $OBJECT use-menu-path false
 
