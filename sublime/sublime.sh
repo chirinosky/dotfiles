@@ -13,17 +13,17 @@ sudo apt install -y sublime-text
 # Install Packages
 # The package manager will automatically download and install them when ST3 is launched
 # https://stackoverflow.com/questions/19529999/add-package-control-in-sublime-text-3-through-the-command-line
-PKG_MGR_PATH="$HOME/.config/sublime-text-3/Installed Packages"
-test -d "$PKG_MGR_PATH" || mkdir -p "$PKG_MGR_PATH"
-curl -s -o "$PKG_MGR_PATH/Package Control.sublime-package" https://packagecontrol.io/Package%20Control.sublime-package
+# PKG_MGR_PATH="$HOME/.config/sublime-text-3/Installed Packages"
+# test -d "$PKG_MGR_PATH" || mkdir -p "$PKG_MGR_PATH"
+# curl -s -o "$PKG_MGR_PATH/Package Control.sublime-package" https://packagecontrol.io/Package%20Control.sublime-package
 
-PKG_SETTINGS_PATH="$HOME/.config/sublime-text-3/Packages/User"
-test -d $PKG_SETTINGS_PATH || mkdir -p $PKG_SETTINGS_PATH
-cp "Package Control.sublime-settings" $PKG_SETTINGS_PATH
+# PKG_SETTINGS_PATH="$HOME/.config/sublime-text-3/Packages/User"
+# test -d $PKG_SETTINGS_PATH || mkdir -p $PKG_SETTINGS_PATH
+# cp "Package Control.sublime-settings" $PKG_SETTINGS_PATH
 
-# Needed for sublack to run
-sudo apt install -y python3-pip
-pip3 install black
+# # Needed for sublack to run
+# sudo apt install -y python3-pip
+#pip3 install black
 
 # PREFERENCES
 # ** USER
@@ -35,6 +35,6 @@ ln -s "$(pwd)/Preferences.sublime-settings" "$PKG_SETTINGS_PATH/Preferences.subl
 ln -s "$(pwd)/Default (Linux).sublime-keymap" "$PKG_SETTINGS_PATH/Default (Linux).sublime-keymap"
 # ** PACKAGES
 # **** sublack
-ln -s "$(pwd)/sublack.sublime-settings" "$PKG_SETTINGS_PATH/sublack.sublime-settings"
+#ln -s "$(pwd)/sublack.sublime-settings" "$PKG_SETTINGS_PATH/sublack.sublime-settings"
 
 subl &
