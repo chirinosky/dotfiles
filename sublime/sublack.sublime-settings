@@ -1,8 +1,0 @@
-{
-    // line length
-    // uses black default, if not modified
-    "black_line_length": 88,
-
-    // run black before saving document
-    "black_on_save": true
-}

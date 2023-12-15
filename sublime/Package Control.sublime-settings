@@ -1,9 +1,3 @@
 {
-	"installed_packages":
-	[
-		"Indent XML",
-		"Package Control",
-		"Pretty JSON",
-		"sublack"
-	]
+  "installed_packages": ["Indent XML", "Package Control", "Pretty JSON"]
 }
