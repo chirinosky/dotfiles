@@ -12,7 +12,7 @@ ln -s $(pwd)/gitmessage $PREF_PATH/message
 ln -s $(pwd)/gitignore $PREF_PATH/ignore
 
 # Non-public settings
-echo "Enter email address to use with git: "
+echo $'\nEnter email address to use with git: '
 read gitemail
 sed -i "s/EMAIL_PLACEHOLDER/$gitemail/g" $PREF_PATH/config
 

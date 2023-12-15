@@ -30,6 +30,7 @@ elif [ $KALI ]; then
     sudo apt update && sudo apt full-upgrade -y
     cd "$(dirname "$0")"
     scripts/app_installs.sh
+    zsh/zsh.sh
     git/git.sh
     tmux/tmux.sh
     cherrytree/cherrytree.sh
