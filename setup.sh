@@ -37,6 +37,7 @@ elif [ $KALI ]; then
     vim/vim.sh
     sublime/sublime.sh
     qterminal/qterminal.sh
+    xfce/xfce.sh
 fi
 
 # VMWare tools and shared folders
