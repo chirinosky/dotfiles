@@ -21,11 +21,11 @@ if [ $PARROT ]; then
     tmux/tmux.sh
     cherrytree/cherrytree.sh
     vim/vim.sh
-#     sublime/sublime.sh
+    sublime/sublime.sh
 #     mate/mate.sh
 # elif [ $kali ]; then
 #     gnome/gnome.sh
-# fi
+fi
 
 # # VMWare tools and shared folders
 # if [ -f /sys/class/dmi/id/product_name ]; then
