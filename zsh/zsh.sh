@@ -2,4 +2,3 @@
 
 cd zsh/
 cp "$(pwd)/zshrc.template" "$HOME/.zshrc"
-exec zsh
