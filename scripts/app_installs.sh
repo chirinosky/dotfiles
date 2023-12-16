@@ -14,8 +14,3 @@ fi
 for pkg in "${packages[@]}"; do
     sudo apt install -y $pkg
 done
-
-if [ $KALI ]; then
-    # Remove the annoying screen lock
-    sudo apt remove -y light-locker
-fi
