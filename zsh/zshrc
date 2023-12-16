@@ -12,6 +12,9 @@ setopt promptsubst         # enable command substitution in prompt
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
+# hide EOL sign ('%')
+export PROMPT_EOL_MARK=""
+
 # configure key keybindings
 bindkey ' ' magic-space                           # do history expansion on space
 bindkey '^U' backward-kill-line                   # ctrl + U
