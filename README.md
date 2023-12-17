@@ -7,10 +7,8 @@ git clone https://github.com/chirinosky/dotfiles.git "$HOME/.dotfiles"
 $HOME/.dotfiles/setup.sh
 ```
 
-## DISCLAIMER
+Works with:
 
-This has only been tested on Kali Linux and Parrot OS
-
-## TODO
-
-Add Mac support
+- ParrotOS
+- Kali
+- macOS

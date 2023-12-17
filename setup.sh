@@ -4,6 +4,8 @@ set -a
 if [ -f /etc/os-release ]; then
     . /etc/os-release
     OS=$NAME
+else
+    OS=$(uname -s)
 fi
 
 case $OS in
@@ -12,6 +14,9 @@ case $OS in
     ;;
 "Kali GNU/Linux")
     KALI=true
+    ;;
+"Darwin")
+    MAC=true
     ;;
 esac
 
@@ -38,6 +43,12 @@ elif [ $KALI ]; then
     sublime/sublime.sh
     qterminal/qterminal.sh
     xfce/xfce.sh
+elif [ $MAC ]; then
+    cd "$(dirname "$0")"
+    scripts/app_installs.sh
+    git/git.sh
+    zsh/zsh.sh
+    terminal_mac/terminal.sh
 fi
 
 # VMWare tools and shared folders

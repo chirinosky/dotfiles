@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-# Install
-sudo apt install -y git
 cd git/
-
 # Link/Copy configs
 PREF_PATH=$HOME/.config/git
 test -d $PREF_PATH || mkdir -p $PREF_PATH
@@ -14,8 +11,9 @@ ln -s $(pwd)/gitignore $PREF_PATH/ignore
 # Non-public settings
 echo $'\nEnter email address to use with git: '
 read gitemail
-sed -i "s/EMAIL_PLACEHOLDER/$gitemail/g" $PREF_PATH/config
-
 echo "Enter full name: "
 read gitfullname
-sed -i "s/NAME_PLACEHOLDER/$gitfullname/g" $PREF_PATH/config
+## Mac requires a backup & Linux doesn't allow empty ones
+sed -i.backup "s/EMAIL_PLACEHOLDER/$gitemail/g" $PREF_PATH/config
+sed -i.backup "s/NAME_PLACEHOLDER/$gitfullname/g" $PREF_PATH/config
+rm $PREF_PATH/config.backup
